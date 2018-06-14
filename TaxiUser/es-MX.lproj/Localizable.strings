@@ -1,0 +1,302 @@
+/* 
+  Localizable.strings
+  TaxiUser
+
+  Created by AppOrio on 24/05/17.
+  Copyright © 2017 apporio. All rights reserved.
+*/
+
+
+
+
+"getting location...." = "Obteniendo ubicación ...";
+"Loading" = "Cargando";
+"Please Wait!!" ="¡¡Por favor espere!!";
+"Alert" = "Alerta";
+"ok" = "Ok";
+"Attach Your Phone number if you want to remember your account easily." = "Adjunte su número de teléfono si desea recordar su cuenta fácilmente.";
+"Register" = "Registrar";
+"Enter Phone" = "Ingrese el teléfono";
+"Please Enter Mobile Number First" = "Por favor ingrese el número de móvil primero";
+"Enter Password" = "Introducir la contraseña";
+"Enter Name" = "Ingrese su nombre";
+"Enter Email" = "Ingrese correo electrónico";
+"Please Enter  Name" = "Por favor ingrese el nombre";
+"Please Enter Mobile Number First" = "Por favor ingrese el número de móvil primero";
+"Password  length should not be less then 5" = "La longitud de la contraseña no debe ser menor que 5 caracteres ";
+"Please fill email properly." = "Por favor, complete el correo electrónico correctamente.";
+"Select Payment Option" = "Seleccione la opción de pago";
+"Password Shoud Not Be Less Then 6" = "La contraseña no debe ser menos 6 caracteres";
+"Password Does Not Match" = "Las contraseñas no coinciden";
+"RESET YOUR PASSWORD" = "RESTABLECER SU CONTRASEÑA";
+"New Password" = "Nueva contraseña";
+"Confirm Password" = "Confirmar contraseña";
+"Change Password" = "Cambie la contraseña";
+"Enter Password" = "Entre Contraseña";
+"Confirm Password" = "Confirmar contraseña";
+"or sign up with" = "O regístrate con";
+"Phone Number" = "Número de teléfono";
+"Password" = "Contraseña";
+"Login as Demo User" = "Iniciar sesión como usuario de Prueba";
+"or Create demo User" = "O Crear usuario de Prueba";
+"Forgot Password ?" = "Se le olvidó su contraseña ?";
+"New here? SignUp" = "¿Nuevo aquí? Regístrate";
+"Login" = "Iniciar sesión";
+"USE IN CASE OF EMERGENCY" = "USE EN CASO DE EMERGENCIA";
+"Call Police Control Room" = "Llamar a la Policia";
+"Call Your Emergency Contact" = "Llame a su contacto de emergencia";
+"CLOSE" = "CERRAR";
+"Select Emergency Contact" = "Seleccione contacto de emergencia";
+"Book Your Ride" = "Programar un viaje";
+"Your Trips" = "Sus viajes";
+"Payments" = "Pagos";
+"Payment" = "Pagos";
+"Rate Card" = "Desglose de tarifa";
+"Wallet" = "Billetera";
+"Promotions" = "Promociones";
+"Change Language" = "Cambiar idioma";
+"Report Issue" = "Reportar problema";
+"Customer Support" = "Atención al cliente";
+"Terms & Conditions" = "Términos y condiciones";
+"About Us" = "Sobre nosotros";
+"Set your drop point" = "¿A dónde vas?";
+"Pick From" = "Punto de Recogida ";
+"Drop Point" = "Punto de Destino";
+"RIDE LATER" = "VIAJAR MAS TARDE";
+"RIDE NOW" = "VIAJAR AHORA";
+"Your Ride is Successfully Booked!!" = "¡Su viaje ha sido exitosamente reservado!";
+"No drop off point" = "Sin punto de destino";
+"Please select car First" = "Por favor seleccione vehículo Primero";
+"Please Enter Drop Location First!!!" = "Por favor ingrese la ubicación del Destino primero!";
+"Do You Want To Continue WithOut Drop Off Point ?" = "¿Desea continuar con el punto de Destino?";
+"Yes" = "Sí";
+"No" = "No";
+"Report Issue Regarding TaxiUser App" = "Reportar algún Problema de la aplicación del Usuario";
+"Sending e-mail in-app is not so bad!" = "¡Es facil enviar un correo electrónico desde la aplicación!";
+"Could Not Send Email" = "No se pudo enviar correo electrónico";
+"Your device could not send e-mail.  Please check e-mail configuration and try again." = "Su dispositivo no pudo enviar el correo electrónico. Compruebe la configuración y vuelva a intentarlo.";
+"Select Language" = "Seleccione el idioma";
+"Please Choose Language" = "Por favor, elegir el idioma";
+"Cancel" = "Cancelar";
+"ABOUT US" = "SOBRE NOSOTROS";
+"Confirm" = "Confirmar";
+"Apply Coupon" = "Aplicar Cupón/Codigo";
+"ETA" = "Tiempo Est. Llegada";
+"Est. Fare" = "Est. Tarifa";
+"Coupon Applied  " = "Cupón aplicado";
+"No Record Found" = "ningún record fue encontrado";
+"Your Ride has been Rejected!!" = "¡Tu viaje ha sido cancelado!";
+"Sorry no driver is available!" = "Lo sentimos, no hay conductores disponibles!";
+"Call Driver" = "Llamar al conductor";
+"Share Ride Link" = "Compartir enlace del viaje";
+"Chat with Driver" = "Chatear con el conductor";
+"Arriving Now" = "Conductor en Camino";
+"Ride Arrived" = "Conductor Llegó";
+"Riding Now" = "En Servicio";
+"EMERGENCY FOR CALL" = "EMERGENCIA PARA LLAMAR";
+"Are You in problem ?" = "¿Estás en problema?";
+"Terms & Conditions" = "Términos y condiciones";
+"RATE CARD" = "DESGLOSE DE TARIFA";
+"SELECT CITY" = "SELECCIONE CIUDAD";
+"SELECT CAR" = "SELECCIONE TIPO VEHÍCULO";
+"FLAT RATE" = "DESGLOSE DE TARIFA";
+"Ride Distance Charges:" = "Cargos X Distancia de viaje:";
+"Ride Time Charges:" = "Cargos X Tiempo de viaje:";
+"Waiting Time Charges:" = "Cargos X Tiempo de espera:";
+"Extra Charges" = "Cargos Extras";
+"Peak Time Charges" = "Cargos X Horas Pico";
+"Night Time Charges" = "Cargos X Horas Nocturnas";
+"Please select City first!!" = "Por favor, seleccione primero la Ciudad!";
+"Please select both filled Car & City!!" = "Por favor Complete Vehículo & Ciudad !!";
+"Base Ride Distance Charges" = "Cargos Base X distancia de viaje";
+"After Base Ride Distance Charges" = "Cargos Después de la distancia base";
+"Free Ride Time" = "Tiempo de viaje gratis";
+"After Free Ride Time Charges" = "Cargos después del tiempo de viaje gratis";
+"Free Waiting Time" = "Tiempo de espera gratis";
+"After Free Waiting Time Charges" = "Cargos Después del tiempo de espera gratis";
+"Select Reason" = "Seleccionar motivo";
+"Don't Cancel" = "No cancelar";
+"Manage Your Cards" = "Administre sus tarjetas";
+"Add New Card" = "Agregue nueva tarjeta";
+"Select Credit Card" = "Seleccionar tarjeta de crédito";
+"No Card Added!!" = "Sin tarjeta agregada !!";
+"Delete Card" = "Eliminar tarjeta";
+"Are you sure want to delete this card ?" = "¿Seguro que quieres eliminar esta tarjeta?";
+//"Your Trips" = "Tus viajes";
+"No Rides!!" = "No hay Viaje !!";
+"Cancelled" = "Cancelado";
+"Ride Booked" = "Viaje Reservado";
+"Ride Accepted" = "Viaje Aceptado";
+"Ride REJECTED" = "Viaje RECHAZADO";
+"Driver Arrived" = "El conductor llegó";
+"Ride Started" = "Viaje inicio";
+"Ride Ended" = "Viaje terminado";
+"Cancelled by Admin" = "Cancelado por Admin";
+"Cancelled by you" = "Cancelado por ti";
+"Cancelled by driver" = "Cancelado por el conductor";
+"Booked Ride For Later" = "Viaje reservado para más tarde";
+"Please Try Again!!" = "¡¡Inténtelo de nuevo!!";
+"Booking Time :- " = "Tiempo de reserva: -";
+"Schedule Time :- " = "Tiempo programado :-";
+"Package" = "Paquete";
+"Extra Distance Travel" = " Distancia de Viaje  adicional";
+"Extra Estimated time" = "Tiempo extra estimado";
+"Coupon Applied" = "Cupón/Codigo aplicado";
+"Total Payable Amount" = "Monto total a pagar";
+"Account Info." = "Informacion de cuenta.";
+"User Email" = "Correo electrónico del usuario";
+"This email can be used in future for getting your proper order tracking and invocing of your order" = "Este correo electrónico se puede usar en el futuro para obtener el seguimiento y la realización de pedidos correctos de su orden.";
+"Verified" = "Verificado";
+"SignOut" = "Desconectar";
+"YOUR ACCOUNT" = "SU CUENTA";
+"DONE" = "HECHO";
+"Please enter email first." = "Por favor ingrese primero el correo electrónico .";
+"Log Out" = "Cerrar sesión";
+"Are You Sure to Log Out ?" = "¿Estás seguro de cerrar la sesión?";
+"Profile Updated" = "Perfil actualizado";
+"APPLY" = "APLICAR";
+"INVALID CODE!!" = "¡¡CODIGO INVALIDO!!";
+"Please enter a valid coupon and try again." = "Por favor ingrese un codigo válido y vuelva a intentarlo.";
+"Your ride has been schedule.Driver details will be shared 15 min before your pickup time." = "Su viaje ha sido programado. Los detalles del conductor se compartirán 15 minutos antes de su hora de recogida.";
+"GETTING NEAREST DRIVER" = "ASIGNANDOLE EL CONDUCTOR MÁS CERCANO";
+"Loading..." = "Cargando...";
+"Please wait your driver reach you soon in while" = "Por favor espere que su conductor lo recogera pronto en";
+"Selected Date" = "Fecha seleccionada";
+"Selected Time" = "Hora seleccionada";
+"Wallet Money" = "Dinero de billetera";
+"Current balance" = "Saldo actual";
+"Add money To Wallet" = "Agregar dinero a Billetera";
+"You dont seem to have any valid coupons" = "No parece tener ningún Codigo válido";
+"Add Money To Wallet" = "Agregar dinero a la billetera";
+"It's quick,safe and secure" = "Es rápido, Confiable y seguro";
+"Add Money" = "Agregar dinero";
+"Please enter Amount First" = "Por favor ingrese el monto primero";
+"Payment Option" = "Opcion de pago";
+"Use Saved Cards" = "Usar tarjetas guardadas";
+"With New card" = "Con la nueva tarjeta";
+"Please select Any option first" = "Seleccione cualquier opción primero";
+"CHOOSE CATEGORY" = "ELEGIR LA CATEGORÍA";
+"CONFIRM BOOKING" = "RESERVA CONFIRMADA";
+"Selected Package" = "Paquete seleccionado";
+"Base Fare" = "Tarifa base";
+"Additional km Fare" = "Tarifa de km adicional";
+"Additional Hour Fare" = "Tarifa de hora adicional";
+"Apply Coupon" = "Aplique Codigo";
+"BOOK FOR LATER" = "RESERVE PARA MAS TARDE";
+"includes " = "incluye";
+"After First " = "Primero Después ";
+" Hours" = "Horas";
+"RENTALS" = "RENTALS";
+"Mini, Prime, Sedan,Luxury and other categories" = "Sencillo, Van, Sedan,Luxury Y otras categorias";
+"Now Rent cab from your app for local tours. Choose an hourly package and travel all day!" = "Ahora Renta TU CONDUCTOR PRIVADO desde tu aplicación para tours locales. ¡Elija un paquete por hora y viaje todo el día!";
+"Car models are city specific." = "Los modelos de autos son específicos de la ciudad.";
+"Book YOUR RENTAL" = "Reserve SU ALQUILER";
+"Please Enter your email to get your invoice" = "Por favor ingrese su correo electrónico para obtener su factura";
+"SEND" = "ENVIAR";
+"DO YOU HAVE A QUERY" = "TIENE UNA CONSULTA";
+"Please let us know about your query,our support team will get back to you" = "Por favor, háganos saber acerca de sus dudas, nuestro equipo de soporte se comunicará con usted";
+"Name " = "Nombre ";
+"Email" = "Email";
+"Your Query" = "consulta";
+"Phone" = "Teléfono";
+"Please Check Your Name" = "Por favor revise su nombre";
+"Please Check Your Email" = "Por favor revise su correo electrónico";
+" Wrong Email format " = "Formato de correo incorrecto";
+"Please Check Your Query is blank" = "Por favor, comprobar que su consulta está en blanco";
+" Email id must not contain space " = "La identificación del correo electrónico no debe contener espacio";
+"No Notification!!" = "Sin notificación!!";
+"Total Ride Time: " = "Tiempo total de viaje:";
+"Total Distance: " = "Distancia total:";
+"Coupon" = "Cupón/Codigo ";
+"Rate " = "Tarifa";
+"Please enter the One Time Password(OTP) received on your entered mobile number!" = "¡Ingrese Codigo (SMS) recibido en su número de móvil ingresado!";
+"Verify Phone Number" = "Verificar número de teléfono";
+"GET OTP" = "OBTENER CODIGO SMS";
+"Submit" = "Enviar";
+"Enter Otp" = "Digite Codigo SMS";
+"Enter Phone" = "Ingrese el teléfono";
+"Mobile number must be 9 to 11 digits." = "El número móvil debe tener entre 9 y 11 dígitos.";
+"Please Enter Mobile Number First" = "Por favor ingrese el número de móvil primero";
+"Please Enter Valid OTP" = "Por favor ingrese Codigo SMS válido";
+"Booking Details" = "Detalles de reservacion ";
+"Your Trip Details :" = "Los detalles de su viaje:";
+"Bill Details" = "Detalles de factura";
+"Total Distance travel" = "Distancia total de viaje";
+"Distance Fare" = "Precio X distancia";
+"Ride Time Charges" = "Cargos X tiempo de viaje";
+"Night Time Charges " = "Cargos X Horas nocturnas";
+//"Peak Time Charges" = "Cargos pico de tiempo";
+"Waiting Charge" = "Cargos X Tiemp. espera";
+"Total Bill" = "Cuenta total";
+"Payment" = "Pago";
+"Distance Travel :" = "Distancia de Viaje:";
+"Total Time :" = "Tiempo Total :";
+"Total Price" = "Precio total";
+"MAIL INVOICE" = "FACT.  POR CORREO";
+"Track Ride" = "Seguimiento de Viaje";
+"Cancel Ride" = "Cancelar viaje";
+"To continue, let your device turn on location, which uses Google's location services.Please turn on your location from settings." = "Para continuar, permite que tu dispositivo active la ubicación, que usa los servicios de ubicación de Google. Activa tu ubicación desde la configuración.";
+"Your Notification has been expired!!" = "¡Su notificación ha expirado!";
+"Your Ride Cancel by Admin!!" = "Viaje Cancelado por La Adm. !!";
+"Your Ride Cancel by Driver!!" = "Viaje Cancelado por el conductor !!";
+"If you want to book ride. Please, go to settings and allow notification permissions." = "Si quieres reservar un viaje. Por favor, vaya a la configuración y conceda los permisos de notificación.";
+"App is under maintance." = "La aplicación está en mantenimiento.";
+"Exit" = "Salir";
+"New Version Available. Please update the app first." = "Nueva versión disponible. Por favor, actualice la aplicación primero.";
+"UPDATE AVAILABLE " = "ACTUALIZACIÓN DISPONIBLE";
+"Update App" = "Actualizar aplicación";
+"Later" = "Luego";
+"Ongoing Trips" = "Viajes en Marcha";
+"Past Trips" = "Viajes pasados";
+"New Message" = "Nuevo mensaje";
+"Click to View" = "Click para ver";
+"Name" = "Nombre";
+"Please select City and Car type first" = "Primero Seleccione Ciudad y Tipo de Vehiculo";
+"Cash" = "Efectivo";
+"Select Date & Time" = "Seleccionar fecha y hora";
+"Done" = "Hecho";
+"Cancel Ride" = "Cancelar viaje";
+"YOUR RECEIPT" = "SU RECIBO";
+"Please Review your reciept before making your payment" = "Por favor revise su recibo antes de hacer su pago";
+"Trip Details" = "Detalles de viaje";
+"Initial meter Reading" = "Lectura inicial del medidor";
+"Final meter Reading" = "Lectura final del medidor";
+//"Total Payable Amount" = "Monto total a pagar";
+//"Distance Travel :" = "Viaje a distancia:";
+//"Total Time :" = "Tiempo Total :";
+"Bill Details :" = "Detalles de la factura:";
+"Total Price :" = "Precio total :";
+"Make Payment" = "Hacer el pago";
+"RATING" = "VALORACION";
+"Comment(if any)" = "Comentario (si hay alguno)";
+"Done" = "Hecho";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

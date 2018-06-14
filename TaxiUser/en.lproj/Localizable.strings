@@ -1,0 +1,298 @@
+/* 
+  Localizable.strings
+  TaxiUser
+
+  Created by AppOrio on 24/05/17.
+  Copyright © 2017 apporio. All rights reserved.
+*/
+
+
+//"getting location...." = "";
+//"Loading" = "";
+//"Please Wait!!" = "";
+//"Alert" = "";
+//"ok" = "";
+//"Attach Your Phone number if you want to remember your account easily." = "";
+//"Register" = "";
+//"Enter Phone" = "";
+//"Please Enter Mobile Number First" = "";
+//"Enter Password" = "";
+//"Enter Name" = "";
+//"Enter Email" = "";
+//"Please Enter  Name" = "";
+//"Please Enter Mobile Number First" = "";
+//"Password  length should not be less then 5" = "";
+//"Please fill email properly." = "";
+//"Select Payment Option" = "";
+//"Password Shoud Not Be Less Then 6" = "";
+//"Password Does Not Match" = "";
+//"RESET YOUR PASSWORD" = "";
+//"New Password" = "";
+//"Confirm Password" = "";
+//"Change Password" = "";
+//"Enter Password" = "";
+//"Confirm Password" = "";
+//"or sign up with" = "";
+//"Phone Number" = "";
+//"Password" = "";
+//"Login as Demo User" = "";
+//"or Create demo User" = "";
+//"Forgot Password ?" = "";
+//"New here? SignUp" = "";
+//"Login" = "";
+//"USE IN CASE OF EMERGENCY" = "";
+//"Call Police Control Room" = "";
+//"Call Your Emergency Contact" = "";
+//"CLOSE" = "";
+//"Select Emergency Contact" = "";
+//"Book Your Ride" = "";
+//"Your Trips" = "";
+//"Payments" = "";
+//"Rate Card" = "";
+//"Wallet" = "";
+//"Promotions" = "";
+//"Change Language" = "";
+//"Report Issue" = "";
+//"Customer Support" = "";
+//"Terms & Conditions" = "";
+//"About Us" = "";
+//"Set your drop point" = "";
+//"Pick From" = "";
+//"Drop Point" = "";
+//"RIDE LATER" = "";
+//"RIDE NOW" = "";
+//"Your Ride is Successfully Booked!!" = "";
+//"No drop off point" = "";
+//"Please select car First" = "";
+//"Please Enter Drop Location First!!!" = "";
+//"Do You Want To Continue WithOut Drop Off Point ?" = "";
+//"Yes" = "";
+//"No" = "";
+//"Report Issue Regarding TaxiUser App" = "";
+//"Sending e-mail in-app is not so bad!" = "";
+//"Could Not Send Email" = "";
+//"Your device could not send e-mail.  Please check e-mail configuration and try again." = "";
+//"Select Language" = "";
+//"Please Choose Language" = "";
+//"Cancel" = "";
+//"ABOUT US" = "":
+//"Confirm" = "";
+//"Apply Coupon" = "";
+//"ETA" = "";
+//"Est. Fare" = "";
+//"Coupon Applied  " = "";
+//"No Record Found" = "";
+//"Your Ride has been Rejected!!" = "";
+//"Sorry no driver is available!" = "";
+//"Call Driver" = "";
+//"Share Ride Link" = "";
+//"Chat with Driver" = "";
+//"Arriving Now" = "";
+//"Ride Arrived" = "";
+//"Riding Now" = "";
+//"EMERGENCY FOR CALL" = "";
+//"Are You in problem ?" = "";
+//"Terms & Conditions" = "";
+//"RATE CARD" = "";
+//"SELECT CITY" = "";
+//"SELECT CAR" = "";
+//"FLAT RATE" = "";
+//"Ride Distance Charges:" = "";
+//"Ride Time Charges:" = "";
+//"Waiting Time Charges:" = "";
+//"Extra Charges" = "";
+//"Peak Time Charges" = "";
+//"Night Time Charges" = "";
+//"Please select City first!!" = "";
+//"Please select both filled Car & City!!" = "";
+//"Base Ride Distance Charges" = "";
+//"After Base Ride Distance Charges" = "";
+//"Free Ride Time" = "";
+//"After Free Ride Time Charges" = "";
+//"Free Waiting Time" = "";
+//"After Free Waiting Time Charges" = "";
+//"Select Reason" = "";
+//"Don't Cancel" = "";
+//"Manage Your Cards" = "";
+//"Add New Card" = "";
+//"Select Credit Card" = "";
+//"No Card Added!!" = "";
+//"Delete Card" = "";
+//"Are you sure want to delete this card ?" = "";
+//"Your Trips" = "";
+//"No Rides!!" = "";
+//"Cancelled" = "";
+//"Ride Booked" = "";
+//"Ride Accepted" = "";
+//"Ride REJECTED" = "";
+//"Driver Arrived" = "";
+//"Ride Started" = "";
+//"Ride Ended" = "";
+//"Cancelled by Admin" = "";
+//"Cancelled by you" = "";
+//"Cancelled by driver" = "";
+//"Booked Ride For Later" = "";
+//"Please Try Again!!" = "";
+//"Booking Time :- "  = "";
+//"Schedule Time :- " = "";
+//"Package" = "";
+//"Extra Distance Travel" = "";
+//"Extra Estimated time" = "";
+//"Coupon Applied" = "";
+//"Total Payable Amount" = "";
+//"Account Info." = "";
+//"User Email" = "";
+//"This email can be used in future for getting your proper order tracking and invocing of your order" = "";
+//"Verified" = "";
+//"SignOut" = "";
+//"YOUR ACCOUNT" = "";
+//"DONE" = "";
+//"Please enter email first." = "";
+//"Log Out" = "";
+//"Are You Sure to Log Out ?" = "";
+//"Profile Updated" = "";
+//"APPLY" = "";
+//"INVALID CODE!!" = "";
+//"Please enter a valid coupon and try again." = "";
+//"Your ride has been schedule.Driver details will be shared 15 min before your pickup time." = "";
+//"GETTING NEAREST DRIVER" = "";
+//"Loading..." = "";
+//"Please wait your driver reach you soon in while" = "";
+//"Selected Date" = "";
+//"Selected Time" = "";
+//"Wallet Money" = "";
+//"Current balance" = "";
+//"Add money To Wallet" = "";
+//"You dont seem to have any valid coupons" = "";
+//"Add Money To Wallet" = "";
+//"It's quick,safe and secure" = "";
+//"Add Money" = "";
+//"Please enter Amount First" = "";
+//"Payment Option" = "";
+//"Use Saved Cards" = "";
+//"With New card" = "";
+//"Please select Any option first" = "";
+//"CHOOSE CATEGORY" = "";
+//"CONFIRM BOOKING" = "";
+//"Selected Package" = "";
+//"Base Fare" = "";
+//"Additional km Fare" = "";
+//"Additional Hour Fare" = "";
+//"Apply Coupon" = "";
+//"BOOK FOR LATER" = "";
+//"includes " = "";
+//"After First " = "";
+//" Hours" = "";
+//"RENTALS" = "";
+//"Mini, Prime, Sedan,Luxury and other categories" = "";
+//"Now Rent cab from your app for local tours. Choose an hourly package and travel all day!" = "";
+//"Car models are city specific." = "";
+//"Book YOUR RENTAL" = "";
+//"Please Enter your email to get your invoice" = "";
+//"SEND" = "";
+//"DO YOU HAVE A QUERY" = "";
+//"Please let us know about your query,our support team will get back to you" = "";
+//"Name " = "";
+//"Email" = "";
+//"your Query" = "";
+//"Phone" = "";
+//"Please Check Your Name" = "";
+//"Please Check Your Email" = "";
+//" Wrong Email format " = "";
+//"Please Check Your Query is blank" = "";
+//" Email id must not contain space " = "";
+//"No Notification!!" = "";
+//"Total Distance: " = "";
+//"Total Ride Time: " = "";
+//"Coupon" = "";
+//"Rate " = "";
+//"Please enter the One Time Password(OTP) received on your entered mobile number!" = "";
+//"Verify Phone Number" = "";
+//"GET OTP" = "";
+//"Submit" = "";
+//"Enter Otp" = "";
+//"Enter Phone" = "";
+//"Mobile number must be less than 11 digits." = "";
+//"Please Enter Mobile Number First" = "";
+//"Please Enter Valid OTP" = "";
+//"Booking Details" = "";
+//"Your Trip Details :" = "";
+//"Bill Details" = "";
+//"Total Distance travel" = "";
+//"Distance Fare" = "";
+//"Ride Time Charges" = "";
+//"Night Time Charges " = "";
+//"Peak Time Charges" = "";
+//"Waiting Charge" = "";
+//"Total Bill" = "";
+//"Payment" = "";
+//"Distance Travel :" = "";
+//"Total Time :" = "";
+//"Total Price" = "";
+//"MAIL INVOICE" = "";
+//"Track Ride" = "";
+//"Cancel Ride" = "";
+//"To continue, let your device turn on location, which uses Google's location services.Please turn on your location from settings." = "";
+//"Your Notification has been expired!!" = "";
+//"Your Ride Cancel by Admin!!" = "";
+//"Your Ride Cancel by Driver!!" = "";
+//"If you want to book ride. Please, go to settings and allow notification permissions." = "";
+//"App is under maintance." = "";
+//"Exit" = "";
+//"New Version Available. Please update the app first." = "";
+//"UPDATE AVAILABLE " = "";
+//"Update App" = "";
+//"Later" = "";
+//"Ongoing Trips" = "";
+//"Past Trips" = "";
+//"New Message" = "";
+//"Click to View" = "";
+//"Name" = "";
+//"Please select City and Car type first" = "";
+//"Cash" = "";
+//"Select Date & Time" = "";
+//"Done" = "";
+//"Cancel Ride" = "";
+//"YOUR RECEIPT" = "";
+//"Please Review your reciept before making your payment" = "";
+//"Trip Details" = "";
+//"Initial meter Reading" = "";
+//"Final meter Reading" = "";
+//"Total Payable Amount" = "";
+//"Distance Travel :" = "";
+//"Total Time :" = "";
+//"Bill Details :" = "";
+//"Total Price :" = "";
+//"Make Payment" = "";
+//"RATING" = "";
+//"Comment(if any)" = "";
+//"Done" = "";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

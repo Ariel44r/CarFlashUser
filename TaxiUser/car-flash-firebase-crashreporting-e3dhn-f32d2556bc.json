@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "car-flash",
+  "private_key_id": "f32d2556bc2d97b6204f3dd01d36cf95dc8c40fc",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQD21qDvdte57Pyw\nJ2XNr7qr6066p7AaiYlnKWVa0eabkq/2FTQStJHhXGmtjh90mDWD62qmz2noErGf\n4CQskjN7T7gduOHPOHgOH2svPlXVt2OuBt3vyyhNoO650B+8rWXQ+0Yw/CgNIJz7\nNqsE0th8QIPsAseSeb28yjtQUCsYPeOJx9LMijflqxwxGTHzc93OR5UrvDCjY0U+\nxTaBFLz1+/wkz2uwSX/GQfd4bBpWqD4PGrO5xmGmF7F3DVO7wFHnHHokOT2xyNGb\nrnhoorYCZ2vYBv3Cu8e8Bbf7dfXJ3ZqoGcaSl97oSZfnayFJzrz8h0RYkTgXHMhg\npE9aWc3xAgMBAAECggEACCf4YmE9aJXVlaZ/nSfI1cRtMgq3bXEM+r0p7bHQ2mQi\n71EtCs8voNAyZ7sx++LJpeXB/OgOmk3/04YO+/AKxnDQZx8ESxoVEXZlTsbTBEBO\niWINtE40szf1m2sumUfrfNfIrnauhhyFQ2G/jeW/pH9nPIWs/YCLTfEqu5Eik2br\ngG1Mcs8/QwbkjqlQRsxRGxswHtUpvfz5SccRsMIcr9CmJKi3WmdaZESXcIyOyT0O\nkjHJVXIFNnRu3pNCyyEzXMzVC024//sIohBWJ1UR9Tvk7zyB+7GUiyawNYhkJyYi\nP6lf1eR+As9wczwpAevX7m1Z1uGRc8Ua4wah+l9BJwKBgQD9GaiBkcA7htnRyttA\nKnTiB6pW4DptNJ8SM/vykWjOmSZy2TQCEnhupLENRQzo3nPXOX+vqUoeGky0fp5y\nkqvIYYwjlzBkxYvgHCytMVysDrQSESHAsn+snBtcvzcZDr1EwrhSf6tQGfj0q1Zr\ncZH+GjLIK0e38VCJoLQfOBJsfwKBgQD5qprASD4gRq7R/QstaaR/1XmS761vmT11\nNtbOGAHSlxNedtUKyrcGLoNLmGOWNwa7r1HlH4QqbYMS1vZQLfyofqAFM4MqpWv7\nAMgMZJVjOrUpw+NDEZY4AGIRcQSPHc3U8eWuFlBJI9nqnhH2cN+qsi6fu6HFB0p7\nncVkkBNNjwKBgQC8FJ4YsvO0CJDDCskFFMfI08NsTbJ9RpZS05iNeCr3I+3jeK7i\nP1GJfw8m+kIOpohUzqCpK9ctKYQIuPML1xyaioq2Q/qtV/OKtcUpar4gCckch+ia\nJssjvNnEgT/zefWCLGUGwWLP4o0TXGOa8kl4F4XXI/pmoYekzmwrquJeBwKBgQCq\ng/KdULndoWjU0lZH9db71/joefmiNq7a11FuAMd95OC9q7tlW34VIr9ZagLaHUrj\n9KGiMxw5PgI/Y8FmkYH2MkVoR/5VqhVNoQMAM9Izq2z/0WHt9Jz8MobIEsBiXqCt\nx2hutZ6v1WSH8N2jywN3uapOPgAGaSxdsSuXuy7z0QKBgHO+O4OD83WQ4B4Zirai\nNhkOtUdOfmQIS66Wnjb2tSMCSxq9F4B1UjPQytwW5kzay2V674W/GsoAMLfVM2UT\nQ7LjtF0tMbCdUAp2quZzOOf6U8MJENy98cGyqB/do2/jt19Z9Jszv5dsjMeZVAXV\nBnUmEF+CSncgEThTF67RfXk2\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-crashreporting-e3dhn@car-flash.iam.gserviceaccount.com",
+  "client_id": "116971790853937871444",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-crashreporting-e3dhn%40car-flash.iam.gserviceaccount.com"
+}
