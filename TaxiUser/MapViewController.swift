@@ -12,7 +12,7 @@ import SwiftyJSON
 import Firebase
 import MessageUI
 import GooglePlaces
-import  AlamofireImage
+import AlamofireImage
 
 var mapviewcontroller :  MapViewController!
 
@@ -108,60 +108,36 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
     //MARK: overrides
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setupView()
-        
         GlobalVarible.languagecodeselectinmenu = 0
-
-        
         GlobalVarible.viewcontrollerself = self
-        
-       
-        
         self.ridenowview.isHidden = true
-        
         mapviewcontroller = self
         GlobalVarible.checklocationvalue = 1
-        
-         bottomdroplocationtext.text = "Set your drop point".localized
-        
+        bottomdroplocationtext.text = "Set your drop point".localized
         if GlobalVarible.movefromdemouser == "demouser"{
-        
-          self.showalert12(message: "You have Logged in as demo user, in order to test ride please select car category as MINI from bottom bar.")
-        }else{
-            
-            
+            self.showalert12(message: "You have Logged in as demo user, in order to test ride please select car category as MINI from bottom bar.")
+
         }
-        
-        
-         mapcameracheck = 1
-        
-        
+        mapcameracheck = 1
         print(GlobalVarible.currencysymbol)
-        
-            
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(showlocation),
             name: NSNotification.Name(rawValue: "location"),
-            object: nil)
-
-        
-       /* profileimage.layer.borderWidth = 1
+            object: nil
+        )
+        /*profileimage.layer.borderWidth = 1
         profileimage.layer.masksToBounds = false
         profileimage.layer.borderColor = UIColor.black.cgColor
         profileimage.layer.cornerRadius =  profileimage.frame.height/2
         profileimage.clipsToBounds = true*/
-        
-        
         self.locationmainview.layer.borderWidth = 1.0
         self.locationmainview.layer.borderColor = UIColor.lightGray.cgColor
         self.locationmainview.layer.cornerRadius = 4
-        
         /*self.toppicklocationview.layer.borderWidth = 1.0
         self.toppicklocationview.layer.borderColor = UIColor.lightGray.cgColor
         self.toppicklocationview.layer.cornerRadius = 4
-        
         self.topdroplocationview.layer.borderWidth = 1.0
         self.topdroplocationview.layer.borderColor = UIColor.lightGray.cgColor
         self.topdroplocationview.layer.cornerRadius = 4*/
@@ -271,8 +247,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        
+    override func viewWillAppear(_ animated: Bool) {   
         if(GlobalVarible.checklocationvalue == 2){
             if(GlobalVarible.UserDropLocationText == "No drop off point".localized){
                 bottomdroplocationtext.text = "Set your drop point".localized
@@ -290,7 +265,6 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                 //   ApiManager.sharedInstance.FindDistance()
 
             }
-            
         }
         
         if(GlobalVarible.checklocationvalue == 3){
@@ -308,10 +282,9 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
         }
         
         if(GlobalVarible.checklocationvalue == 1){
-            
             self.locationManager.startUpdatingLocation()
-            
             mapview.animate(toZoom: 15)
+
         }
         
         self.slidingview.alpha = 0
@@ -323,7 +296,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
         facebookimage = NsUserDekfaultManager.SingeltionInstance.getuserdetaild(key: NsUserDekfaultManager.keyfacbookimage)!
         googleimage = NsUserDekfaultManager.SingeltionInstance.getuserdetaild(key: NsUserDekfaultManager.keygoogleimage)!
         
-        if Userimage != ""{    
+        if Userimage != "" {
             let newUrl =  Userimage
             let url = URL(string: newUrl)
             profileimage.af_setImage(withURL: url! as URL, placeholderImage: UIImage(named: "dress"), filter: nil, imageTransition: .crossDissolve(1.0))
@@ -345,7 +318,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
 
         self.profilename.text! = userphone        
         self.profileemail.text! = email
-       // dropofflocation.text = GlobalVarible.UserDropLocationText
+        // dropofflocation.text = GlobalVarible.UserDropLocationText
         
     }
 
@@ -367,11 +340,10 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                 let ridestatus = value?["ride_status"] as! String
                 let donerideid = value?["done_ride_id"] as! String
                 let changedestination = value?["changed_destination"] as! String
-                if GlobalVarible.changeddestination == 0{
+                if GlobalVarible.changeddestination == 0 {
                     /* if changedestination == "1"{
                         GlobalVarible.changeddestination = 1
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "trackride"), object: nil, userInfo: nil)
-                
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "trackride"), object: nil, userInfo: nil)        
                     }*/
                 }
                 self.part4 = rideid
@@ -466,45 +438,29 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
     }
 
     func showalert10(message:String)  {
-        
-      //  DispatchQueue.main.async(execute: {
-            
-            let alertController = UIAlertController(title:   "Alert".localized, message:message, preferredStyle: .alert)
-        
+        //DispatchQueue.main.async(execute: {
+        let alertController = UIAlertController(title:   "Alert".localized, message:message, preferredStyle: .alert)
         GlobalVarible.ridebookdialogvalue = 1
-            
-            let OKAction = UIAlertAction(title: "ok".localized, style: .default) { (action) in
+        let OKAction = UIAlertAction(title: "ok".localized, style: .default) { (action) in
+            GlobalVarible.ridebookdialogvalue = 0
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let TrackViewController = storyBoard.instantiateViewController(withIdentifier: "TrackRideViewController") as! TrackRideViewController
+            // TrackViewController.mydatapage = self.driverdata
+            TrackViewController.Currentrideid = self.part4
+            TrackViewController.currentStatus = self.part5
+            //TrackViewController.currentmessage = self.part1
+            self.present(TrackViewController, animated:true, completion:nil)
                 
-                GlobalVarible.ridebookdialogvalue = 0
-                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-                let TrackViewController = storyBoard.instantiateViewController(withIdentifier: "TrackRideViewController") as! TrackRideViewController
-                // TrackViewController.mydatapage = self.driverdata
-                TrackViewController.Currentrideid = self.part4
-                TrackViewController.currentStatus = self.part5
-                //TrackViewController.currentmessage = self.part1
-                self.present(TrackViewController, animated:true, completion:nil)
-                
-            }
-            alertController.addAction(OKAction)
-            
-            self.present(alertController, animated: true) {
-                
-            }
-            
-            
-       // })
-        
+        }
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true) { }
+        //})
     }
     
     func showalert11(message:String)  {
-        
         DispatchQueue.main.async(execute: {
-            
             let alertController = UIAlertController(title:   "Alert".localized, message:message, preferredStyle: .alert)
-            
-            
             let OKAction = UIAlertAction(title: "ok".localized, style: .default) { (action) in
-                
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let TrackViewController = storyBoard.instantiateViewController(withIdentifier: "RentalTrackRideViewController") as! RentalTrackRideViewController
                 // TrackViewController.mydatapage = self.driverdata
@@ -515,37 +471,22 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                 
             }
             alertController.addAction(OKAction)
-            
-            self.present(alertController, animated: true) {
-                
-            }
-            
+            self.present(alertController, animated: true) {}
             
         })
-        
     }
     
     func showalert12(message:String)  {
-        
-         DispatchQueue.main.async(execute: {
-        
+        DispatchQueue.main.async(execute: {
         let alertController = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        
-        
         let OKAction = UIAlertAction(title: "ok".localized, style: .default) { (action) in
-            
-          GlobalVarible.movefromdemouser = ""
+            GlobalVarible.movefromdemouser = ""
             
         }
         alertController.addAction(OKAction)
+        self.present(alertController, animated: true) {}
         
-        self.present(alertController, animated: true) {
-            
-        }
-        
-        
-         })
-        
+        })
     }
     
     func showlocation(notification: NSNotification){
@@ -1007,9 +948,11 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
             let refreshAlert = UIAlertController(title:  "Log Out".localized, message: "Are You Sure to Log Out ?".localized, preferredStyle: UIAlertControllerStyle.alert)
             refreshAlert.addAction(UIAlertAction(title: "Confirm".localized , style: .default, handler: { (action: UIAlertAction!) in
                 let uniqueid =  UserDefaults.standard.string(forKey: "unique_number")    
-                let dic=[ LogoutUrl1:"\(self.Userid)",
-                        LogoutUrl2:"\(uniqueid!)",
-                        LogoutUrl3:"\(GlobalVarible.languagecode)"
+                let dic = [ 
+                    LogoutUrl1:"\(self.Userid)",
+                    LogoutUrl2:"\(uniqueid!)",
+                    LogoutUrl3:"\(GlobalVarible.languagecode)"
+
                 ]
                 print(dic)    
                 ApiManager.sharedInstance.protocolmain_Catagory = self
@@ -1017,7 +960,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
 
             }))
             refreshAlert.addAction(UIAlertAction(title: "Cancel".localized, style: .default, handler: { (action: UIAlertAction!) in 
-                refreshAlert .dismiss(animated: true, completion: nil)
+                refreshAlert.dismiss(animated: true, completion: nil)
 
             }))            
             present(refreshAlert, animated: true, completion: nil)
@@ -1076,7 +1019,6 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
             // cell.checkRadioBtn.image = UIImage(named: "Circle Thin-35 (1)")
             
         }
-
         cell.carname.text = CarsTimedata.details![indexPath.row].carTypeName!
         cell.cartime.text = CarsTimedata.details![indexPath.row].baseFare!
         return cell
@@ -1091,7 +1033,6 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
         self.selectvalue = 1
         self.markers.removeAll()
         self.driverIds.removeAll()
-        
         if(UserDefaults.standard.object(forKey: "PreferredLanguage") as! String == "en"){    
             GlobalVarible.firstcarname = CarsTimedata.details![indexPath.row].carTypeName!
             GlobalVarible.cartypename = CarsTimedata.details![indexPath.row].carTypeName!
@@ -1119,13 +1060,11 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
            // self.GetDatafromfirebase()
             
         }
-        
         MapCollectionview.reloadData()
         
     }
     
     func datagetfromgeofire(){
-        
         let geofireRef = self.ref.child("geofire")
         let geoFire = GeoFire(firebaseRef: geofireRef)
         let center = CLLocation(latitude: Double(GlobalVarible.PickUpLat)!, longitude: Double(GlobalVarible.PickUpLng)!)
@@ -1136,15 +1075,9 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
             print(self.postdata)
             
         })
-        
-        circleQuery?.observeReady({
-            
+        circleQuery?.observeReady({  
         for postId in self.postdata {
-            
-            
             self.ref.child("Drivers_A").child(postId).observe(.value, with: { (snapshot) in
-                
-                
                /* GlobalVarible.Counter = "yes"
                 self.latermoved = "RideLaterMove"
                 //   self.markers.removeAll()

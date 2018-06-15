@@ -123,14 +123,12 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
 
     
     @IBAction func onLogin(_ sender: Any) {
-        
         self.view.endEditing(true)        
         self.buttonPressed = "login"
         let dic=[ loginUrl2:"\(selcetcountrycode + self.phone.text!)",
             loginUrl3:"\(self.password.text!)",
             loginUrl4:"\(GlobalVarible.languagecode)"
         ]
-        
         ApiManager.sharedInstance.protocolmain_Catagory = self
         ApiManager.sharedInstance.postData(dictonary: dic as NSDictionary, url: loginUrl)
         //ApiController.sharedInstance.parsPostData(dic, url: loginUrl, reseltCode: 2)

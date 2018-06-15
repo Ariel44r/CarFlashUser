@@ -156,7 +156,7 @@ class SplashViewController: UIViewController,CLLocationManagerDelegate,MainCateg
         if let window = self.view.window{
             window.rootViewController = nextController
 
-        }   
+        }
     }
     
     func showalert(message:String)  {
