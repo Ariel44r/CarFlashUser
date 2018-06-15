@@ -1144,7 +1144,6 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
             
             self.ref.child("Drivers_A").child(postId).observe(.value, with: { (snapshot) in
                 
-                
                /* GlobalVarible.Counter = "yes"
                 self.latermoved = "RideLaterMove"
                 //   self.markers.removeAll()
@@ -1157,67 +1156,34 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                 self.addarray.removeAll()
                 //self.seatnolabel.text = "No driver"*/
                 // self.seatnolabel.text = " "
-                
                 let value = snapshot.value as? NSDictionary
-                
-                
-                
-                
                 var cartypeid = ""
                 var status = ""
-                
                 if(value?["driver_car_type_id"] as! String != ""){
-                
                     cartypeid = value?["driver_car_type_id"] as! String
                     status = value?["driver_online_offline_status"] as! String
+                    
                 
                 }
-                
                 if(cartypeid == GlobalVarible.car_type_id ){
-                    
                     self.movedfrom = "CarSelect"
-
-                     if(value?["driver_current_latitude"]  as! String as! String != "") {
-                        
-                        
-                        let latitude =   value?["driver_current_latitude"]  as! String
-                        
+                    if(value?["driver_current_latitude"]  as! String as! String != "") {
+                    let latitude =   value?["driver_current_latitude"]  as! String
                         let longitude =     value?["driver_current_longitude"] as! String
-                        
-                        
                         let bearningdegree =   value?["bearingfactor"] as! String
-                        
                         let status =   value?["driver_online_offline_status"] as! String
-                        
                         var distanceInMeter = 0.0
-                        
-                        
-                        
                         if(self.selectvalue == 1 && status == "1"){
-                            
-                            
                             let coordinateTo = CLLocation(latitude: Double(latitude)!, longitude: Double(longitude)!)
-                            
                             // let coordinateFrom = CLLocation(latitude: 28.4198, longitude: 77.0382)
-                            
                             let pickuplat = Double(GlobalVarible.PickUpLat)
                             let pickuplng = Double(GlobalVarible.PickUpLng)
-                            
                             let coordinateFrom = CLLocation(latitude: pickuplat! , longitude: pickuplng!)
-                            
                             distanceInMeter =  coordinateFrom.distance(from: coordinateTo)
-                            
                             let distanceInKilometer =  distanceInMeter * 0.001
-                            
                             print(distanceInKilometer)
-                            
-                            
-                            
                             self.distanceKM.append(distanceInKilometer)
-                            
                             self.addarray.append(postId as AnyObject)
-                            
-                            
                             self.minimumValue = self.distanceKM.min()
                             
 
