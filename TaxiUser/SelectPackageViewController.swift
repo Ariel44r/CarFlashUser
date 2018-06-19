@@ -90,7 +90,7 @@ class SelectPackageViewController: UIViewController,UITableViewDelegate,UITableV
         
         selectpackagetable.deselectRow(at: indexPath as IndexPath, animated: true)
         let row = indexPath.row
-        print("Row: \(row)")
+        debugPrint("Row: \(row)")
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let choosecategoryviewcontroller = storyBoard.instantiateViewController(withIdentifier: "ChooseCategoryViewController") as! ChooseCategoryViewController

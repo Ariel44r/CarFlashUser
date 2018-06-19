@@ -120,7 +120,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
 
         }
         mapcameracheck = 1
-        print(GlobalVarible.currencysymbol)
+        debugPrint(GlobalVarible.currencysymbol)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(showlocation),
@@ -211,7 +211,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
             }
         }
        // GlobalVarible.trackbackbtnvaluematch = 0
-        print("\u{00A3}")
+        debugPrint("\u{00A3}")
         self.NoOperateview.layer.isHidden = true
         let date = Date()
         let formatter = DateFormatter()
@@ -349,7 +349,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                 self.part4 = rideid
                 self.part5 = ridestatus
                 let firebaseridestatus =  UserDefaults.standard.string(forKey: "firebaseride_status")
-                print(firebaseridestatus)
+                debugPrint(firebaseridestatus)
                 if ridestatus == firebaseridestatus{ 
                 } else{
                     // ApiManager.sharedInstance.protocolmain_Catagory = self
@@ -423,16 +423,16 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
 
                     }                    
                 }
-                print(rideid)
-                print(ridestatus)
+                debugPrint(rideid)
+                debugPrint(ridestatus)
                 
             }else{
-                print("hello")
+                debugPrint("hello")
 
             }
         }) { 
             (error) in
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
 
         }        
     }
@@ -687,8 +687,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                 //self.topdroplocationview.slidebottom()
                 dotaddressimage.image = UIImage(named: "dropoffaddress") as UIImage?
                 centeraddressimage.image = UIImage(named: "Record-25") as UIImage?
-                print(GlobalVarible.UserDropLat)
-                print(GlobalVarible.UserDropLng)
+                debugPrint(GlobalVarible.UserDropLat)
+                debugPrint(GlobalVarible.UserDropLng)
                 let position = CLLocationCoordinate2DMake(GlobalVarible.UserDropLat, GlobalVarible.UserDropLng)
                 // self.setuplocationMarker(position)
                 mapview.animate(toLocation: position)
@@ -736,7 +736,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
         slidingview.layer.cornerRadius = 5
         slidingview.clipsToBounds = true
         if let window = UIApplication.shared.keyWindow{
-            print(window.frame)
+            debugPrint(window.frame)
             blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
             let lefswipe = (UISwipeGestureRecognizer(target: self, action:#selector(slideToRightWithGestureRecognizer)))
             lefswipe.direction = .left
@@ -770,7 +770,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizerDirection.left:
-                print("Swiped right")
+                debugPrint("Swiped right")
                 slidingview.slideRight()
                 self.slidingview.alpha = 0
                 self.blackView.alpha = 0
@@ -831,7 +831,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {    
         menutable.deselectRow(at: indexPath as IndexPath, animated: true)
         let row = indexPath.row
-        print("Row: \(row)")
+        debugPrint("Row: \(row)")
 
         switch indexPath.row {
         case 0: //Book your Ride
@@ -954,7 +954,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                     LogoutUrl3:"\(GlobalVarible.languagecode)"
 
                 ]
-                print(dic)    
+                debugPrint(dic)    
                 ApiManager.sharedInstance.protocolmain_Catagory = self
                 ApiManager.sharedInstance.logoutUser(dictonary: dic as NSDictionary, url: LogoutUrl)
 
@@ -995,7 +995,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
         cell.container.layer.shadowRadius = 2
         //.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let newString = CarsTimedata.details![indexPath.row].carTypeImage!
-        print(newString)
+        debugPrint(newString)
         let url = imageUrl + newString
         let url1 = NSURL(string: url)
         cell.carimage!.af_setImage(withURL:
@@ -1049,7 +1049,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
         GlobalVarible.cartypeimage = CarsTimedata.details![indexPath.row].carTypeImage!
 
         if CarsTimedata.details![indexPath.row].rideMode == "2"{
-            print("ridemode2")
+            debugPrint("ridemode2")
             ApiManager.sharedInstance.protocolmain_Catagory = self
             ApiManager.sharedInstance.SelectRentalCar(CityID: GlobalVarible.Cityid)
             
@@ -1070,9 +1070,9 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
         let center = CLLocation(latitude: Double(GlobalVarible.PickUpLat)!, longitude: Double(GlobalVarible.PickUpLng)!)
         let circleQuery = geoFire?.query(at: center, withRadius: 5.0)
         let queryHandle = circleQuery?.observe(.keyEntered, with: { (key: String!, location: CLLocation!) in
-            print("Key '\(key)' entered the search area and is at location '\(location)'")
+            debugPrint("Key '\(key)' entered the search area and is at location '\(location)'")
             self.postdata.append(key!)
-            print(self.postdata)
+            debugPrint(self.postdata)
             
         })
         circleQuery?.observeReady({  
@@ -1142,7 +1142,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                             
                             let distanceInKilometer =  distanceInMeter * 0.001
                             
-                            print(distanceInKilometer)
+                            debugPrint(distanceInKilometer)
                             
                             
                             
@@ -1176,7 +1176,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
          
             
             }) { (error) in
-                print(error.localizedDescription)
+                debugPrint(error.localizedDescription)
             }
             
             }
@@ -1212,8 +1212,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                 var status = ""   
                /*  if let city = ((items as AnyObject).childSnapshot(forPath: "driver_car_type_id").value) {
                     let cartype = (items as AnyObject).childSnapshot(forPath: "driver_car_type_id").value
-                    print(cartype ?? "nil")
-                    print("hellocity")
+                    debugPrint(cartype ?? "nil")
+                    debugPrint("hellocity")
                     
                  }else{*/
                 
@@ -1269,7 +1269,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                             
                             let distanceInKilometer =  distanceInMeter * 0.001
                             
-                            print(distanceInKilometer)
+                            debugPrint(distanceInKilometer)
                             
                             
                             
@@ -1332,7 +1332,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
             
             
         }) { (error) in
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         }
         
         
@@ -1397,8 +1397,8 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
         //self.ridenowview.hidden = false
        
         
-        print(position.target.latitude)
-        print(position.target.longitude)
+        debugPrint(position.target.latitude)
+        debugPrint(position.target.longitude)
         
     }
     
@@ -1417,7 +1417,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                         let lines = address.lines
                         self.toppickuplocation.text = lines!.joined(separator: "\n")
                         GlobalVarible.Pickuptext = lines!.joined(separator: "\n")
-                    print(GlobalVarible.Pickuptext)
+                    debugPrint(GlobalVarible.Pickuptext)
                     GlobalVarible.PickUpLat  = String(coordinate.latitude)
                     GlobalVarible.PickUpLng = String(coordinate.longitude)
                     GlobalVarible.k = 0
@@ -1487,7 +1487,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                         GlobalVarible.Pickuptext = lines!.joined(separator: "\n")
                         
                        
-                        print(GlobalVarible.Pickuptext)
+                        debugPrint(GlobalVarible.Pickuptext)
                         GlobalVarible.PickUpLat  = String(coordinate.latitude)
                         GlobalVarible.PickUpLng = String(coordinate.longitude)
                         GlobalVarible.k = 0
@@ -1626,7 +1626,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     func onerror(msg : String) {
@@ -1702,7 +1702,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
             CarsTimedata = data as! CarsTImeModel
             
             
-        //    print(CarsTimedata.msg?.count ?? <#default value#>)
+        //    debugPrint(CarsTimedata.msg?.count ?? <#default value#>)
             if(CarsTimedata.status == 0){
                 
                 self.ridenowview.layer.isHidden = true
@@ -1731,7 +1731,7 @@ class MapViewController: UIViewController,CLLocationManagerDelegate, GMSMapViewD
                     let charAsInt = Int(charAsString!, radix: 16)!
                     let uScalar = UnicodeScalar(charAsInt)!
                     
-                    print("\(uScalar)")
+                    debugPrint("\(uScalar)")
                     
                      GlobalVarible.currencysymbol = "\(uScalar)"
                 
@@ -1940,12 +1940,12 @@ extension MapViewController {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print(place)
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
-        print("Place attributions: \(place.coordinate.latitude)")
-        print("Place attributions: \(place.coordinate.longitude)")
+        debugPrint(place)
+        debugPrint("Place name: \(place.name)")
+        debugPrint("Place address: \(place.formattedAddress)")
+        debugPrint("Place attributions: \(place.attributions)")
+        debugPrint("Place attributions: \(place.coordinate.latitude)")
+        debugPrint("Place attributions: \(place.coordinate.longitude)")
       //  manualloactioncheck = "manual"
         if GlobalVarible.checklocationvalue == 3{
             self.i = 1
@@ -1971,7 +1971,7 @@ extension MapViewController {
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
+        debugPrint("Error: ", error.localizedDescription)
     }
     
     // User canceled the operation.
@@ -2004,7 +2004,7 @@ extension MapViewController {
             {
                 
                 Index = index
-                print(index)
+                debugPrint(index)
                 break
             }
             else
@@ -2015,12 +2015,12 @@ extension MapViewController {
         }
         
         
-        print(Index)
+        debugPrint(Index)
         if Index != -10
         {
             
             //  self.seatnolabel.text = totaltime
-            print(status)
+            debugPrint(status)
             
             // let oldLocationCenter = CLLocation(latitude:  Double(GlobalVarible.PickUpLat)!, longitude:  Double(GlobalVarible.PickUpLng)!)
             
@@ -2114,11 +2114,11 @@ extension MapViewController {
    
     
     func mapView(mapView: GMSMapView, didTapInfoWindowOfMarker marker: GMSMarker) {
-        print("hello")
+        debugPrint("hello")
         
         let index:Int! = Int(marker.accessibilityLabel!)
         
-        print(index)
+        debugPrint(index)
         
         
     }
@@ -2210,7 +2210,7 @@ extension MapViewController {
             marker.accessibilityLabel = driverId
             marker.accessibilityValue = String(status)
             
-            print(degrees)
+            debugPrint(degrees)
             CATransaction.begin()
             CATransaction.setAnimationDuration(1.0)
             marker.rotation = degrees

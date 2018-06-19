@@ -129,13 +129,13 @@ class ConfirmBookingRentalViewController: UIViewController,MainCategoryProtocol,
              descriptiontext.attributedText =  str
             
         } catch {
-            print(error)
+            debugPrint(error)
         }*/
 
         
         rentalconfirmtable.reloadData()
         
-        print(newString)
+        debugPrint(newString)
         
         let url = imageUrl + newString
         
@@ -191,7 +191,7 @@ class ConfirmBookingRentalViewController: UIViewController,MainCategoryProtocol,
     
     override func viewWillAppear(_ animated: Bool) {
         
-        print(GlobalVarible.paymentmethod)
+        debugPrint(GlobalVarible.paymentmethod)
         selectpaymentmethodtext.text = GlobalVarible.paymentmethod
         
         
@@ -277,7 +277,7 @@ class ConfirmBookingRentalViewController: UIViewController,MainCategoryProtocol,
             decriptiontext.attributedText =  str
             
         } catch {
-            print(error)
+            debugPrint(error)
         }
         
 
@@ -358,7 +358,7 @@ class ConfirmBookingRentalViewController: UIViewController,MainCategoryProtocol,
             
             
         ]
-        print(dic)
+        debugPrint(dic)
         
 
         ApiManager.sharedInstance.protocolmain_Catagory = self
@@ -465,7 +465,7 @@ class ConfirmBookingRentalViewController: UIViewController,MainCategoryProtocol,
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     
@@ -666,7 +666,7 @@ class ConfirmBookingRentalViewController: UIViewController,MainCategoryProtocol,
                 
 
                 
-                print(cancel60secrideid)
+                debugPrint(cancel60secrideid)
                 
                 
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "show"), object: nil)
@@ -679,7 +679,7 @@ class ConfirmBookingRentalViewController: UIViewController,MainCategoryProtocol,
                 
                // hiddenview.isHidden = true
                 self.showalert(message: rentalbookdata.message!)
-                print("Ride Book Unsuccessfully")
+                debugPrint("Ride Book Unsuccessfully")
             }
             
             
@@ -796,12 +796,12 @@ class ConfirmBookingRentalViewController: UIViewController,MainCategoryProtocol,
         GlobalVarible.timerForGetDriverLocation1.invalidate()
         
         
-        print("Driver Accepted")
+        debugPrint("Driver Accepted")
         
         
         let totalvalue = notification.userInfo!
         
-        print(totalvalue)
+        debugPrint(totalvalue)
         
         
         
@@ -810,14 +810,14 @@ class ConfirmBookingRentalViewController: UIViewController,MainCategoryProtocol,
             if let alert = aps["alert"] as? NSString {
                 //Do stuff
                 part1 = alert as String
-                print("Part 1: \(part1)")
+                debugPrint("Part 1: \(part1)")
                 
                 
                 part2 = aps["ride_id"] as! String
-                print("Part 2: \(part2)")
+                debugPrint("Part 2: \(part2)")
                 
                 part3 = aps["ride_status"] as! String
-                print("Part 3: \(part3)")
+                debugPrint("Part 3: \(part3)")
                 
                 
               //  ApiManager.sharedInstance.protocolmain_Catagory = self

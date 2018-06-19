@@ -26,7 +26,7 @@ class WebViewController: UIViewController,UIWebViewDelegate {
         
        // let url = "http://peoplespensiontrust.com/dropping"
         
-        print(weblinkurl)
+        debugPrint(weblinkurl)
         
         let url1 = URL(string: weblinkurl)
         let request = URLRequest(url: url1!)

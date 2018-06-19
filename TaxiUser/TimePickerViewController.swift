@@ -41,7 +41,7 @@ class TimePickerViewController: UIViewController,MainCategoryProtocol {
        
        // let newdate = date.addingTimeInterval(7200)
         let newdate = date.addingTimeInterval(300)
-        print(newdate)
+        debugPrint(newdate)
         datepick.minimumDate = newdate
         
         //let formatter = DateFormatter()
@@ -60,13 +60,13 @@ class TimePickerViewController: UIViewController,MainCategoryProtocol {
         let formatter = DateFormatter()
         formatter.dateFormat = "E, dd MMM yyyy"
         let strDate = formatter.string(from: datepick.date)
-        print(strDate)
+        debugPrint(strDate)
         
         
         
         formatter.dateFormat = "HH:mm:ss"
         let time = formatter.string(from: datepick.date)
-        print(time)
+        debugPrint(time)
 
         selectdatetimetext.text = strDate + " " + time
         
@@ -85,13 +85,13 @@ class TimePickerViewController: UIViewController,MainCategoryProtocol {
            // formatter.dateFormat = "E, dd MMM yyyy"
             formatter.dateFormat = "yyyy-MM-dd"
             let strDate = formatter.string(from: datepick.date)
-            print(strDate)
+            debugPrint(strDate)
             
             
             
             formatter.dateFormat = "HH:mm:ss"
             let time = formatter.string(from: datepick.date)
-            print(time)
+            debugPrint(time)
             
             GlobalVarible.SelectDate = strDate
             GlobalVarible.SelectTime = time
@@ -117,7 +117,7 @@ class TimePickerViewController: UIViewController,MainCategoryProtocol {
                 
                 
             ]
-            print(dic)
+            debugPrint(dic)
             
             ApiManager.sharedInstance.protocolmain_Catagory = self
             ApiManager.sharedInstance.ConfirmRide(dictonary: dic as NSDictionary, url: RideNowUrl)*/
@@ -137,13 +137,13 @@ class TimePickerViewController: UIViewController,MainCategoryProtocol {
             //formatter.dateFormat = "E, dd MMM yyyy"
             formatter.dateFormat = "yyyy/MM/dd"
             let strDate = formatter.string(from: datepick.date)
-            print(strDate)
+            debugPrint(strDate)
             
             
             
             formatter.dateFormat = "HH:mm:ss"
             let time = formatter.string(from: datepick.date)
-            print(time)
+            debugPrint(time)
             
             GlobalVarible.SelectDate = strDate
             GlobalVarible.SelectTime = time
@@ -249,7 +249,7 @@ class TimePickerViewController: UIViewController,MainCategoryProtocol {
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

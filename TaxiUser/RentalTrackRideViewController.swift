@@ -345,7 +345,7 @@ class RentalTrackRideViewController: UIViewController,MainCategoryProtocol {
         
         ref.child("Drivers_A").child(driverid).observe(.value, with: { (snapshot) in
             
-            print(self.driverid)
+            debugPrint(self.driverid)
             
             
             //  if let currentData = (snapshot.value! as! NSDictionary).object(forKey: self.driverid) as? [String:AnyObject]{
@@ -363,8 +363,8 @@ class RentalTrackRideViewController: UIViewController,MainCategoryProtocol {
             
             let bearningdegree = value?["bearingfactor"] as! String
             
-            print(latitude)
-            print(bearningdegree)
+            debugPrint(latitude)
+            debugPrint(bearningdegree)
             
             self.startlat = GlobalVarible.PickUpLat
             self.startlng = GlobalVarible.PickUpLng
@@ -400,7 +400,7 @@ class RentalTrackRideViewController: UIViewController,MainCategoryProtocol {
             
             let distanceInMeter =  coordinateFrom.distance(from: coordinateTo)
             
-            print(distanceInMeter)
+            debugPrint(distanceInMeter)
             
             if distanceInMeter < 200{
                 
@@ -422,7 +422,7 @@ class RentalTrackRideViewController: UIViewController,MainCategoryProtocol {
             //  }
             
         }) { (error) in
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         }
         
         
@@ -627,7 +627,7 @@ class RentalTrackRideViewController: UIViewController,MainCategoryProtocol {
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     
@@ -700,7 +700,7 @@ class RentalTrackRideViewController: UIViewController,MainCategoryProtocol {
                 
                 
                 if driverratingvalue == ""{
-                    print("hjjk")
+                    debugPrint("hjjk")
                 }else{
                     
                     // ratingview.rating = Float(driverratingvalue!)!
@@ -709,16 +709,16 @@ class RentalTrackRideViewController: UIViewController,MainCategoryProtocol {
                 
                 let drivertypeimage = rentaldriverinformationdata.details!.driverImage
                 
-                print(drivertypeimage!)
+                debugPrint(drivertypeimage!)
                 
                 if(drivertypeimage == ""){
                     driverimageview.image = UIImage(named: "profileeee") as UIImage?
-                    print("No Image")
+                    debugPrint("No Image")
                 }else{
                     let newUrl = imageUrl + drivertypeimage!
                     
                     // let url = "http://apporio.co.uk/apporiotaxi/\(drivertypeimage!)"
-                    // print(url)
+                    // debugPrint(url)
                     
                     let url1 = NSURL(string: newUrl)
                     driverimageview!.af_setImage(withURL:
@@ -842,7 +842,7 @@ class RentalTrackRideViewController: UIViewController,MainCategoryProtocol {
                 
             }else{
                 
-                print("Hello")
+                debugPrint("Hello")
                 
                 
             }

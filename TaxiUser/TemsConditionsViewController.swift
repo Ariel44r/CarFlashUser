@@ -72,7 +72,7 @@ class TemsConditionsViewController: UIViewController,MainCategoryProtocol {
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     
@@ -97,7 +97,7 @@ class TemsConditionsViewController: UIViewController,MainCategoryProtocol {
                 
                 textview.attributedText =  str
             } catch {
-                print(error)
+                debugPrint(error)
             }
             
 
@@ -110,7 +110,7 @@ class TemsConditionsViewController: UIViewController,MainCategoryProtocol {
                 
                 textview.attributedText =  str
             } catch {
-                print(error)
+                debugPrint(error)
             }
             
 

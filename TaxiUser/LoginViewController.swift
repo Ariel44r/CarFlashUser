@@ -26,9 +26,9 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
     @IBOutlet var googleButton: UIButton!
     @IBOutlet var lblOrSignUp: UILabel!
     @IBOutlet var lblNewhere: UILabel!
-    // @IBOutlet weak var orcreatedemousertextlabel: UILabel!
+    //@IBOutlet weak var orcreatedemousertextlabel: UILabel!
     @IBOutlet var lblForgotPassword: UILabel!
-    // @IBOutlet weak var logindemousertextlabel: UILabel!
+    //@IBOutlet weak var logindemousertextlabel: UILabel!
     @IBOutlet weak var selectcountrycodelabel: UILabel!
     @IBOutlet weak var selectcountrycodebtntext: UIButton!
 
@@ -51,21 +51,15 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
         self.password.placeholder = "Password".localized
         loginButton.setTitle("Login".localized, for: UIControlState.normal)
         //logindemousertextlabel.text = "Login as Demo User".localized
-       // orcreatedemousertextlabel.text = "or Create demo User".localized
-        
+        //orcreatedemousertextlabel.text = "or Create demo User".localized
         self.lblForgotPassword.text = "Forgot Password ?".localized
-       
         self.lblNewhere.text = "New here? SignUp".localized
-
-        
         self.loginButton.edgeWithShadow()
-       self.facebokButton.edgeWithShadow()
+        self.facebokButton.edgeWithShadow()
         self.googleButton.edgeWithShadow()
         self.container.edgeWithShadow()
-
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
-
         // Do any additional setup after loading the view.
     }
 
@@ -99,7 +93,7 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
     @IBAction func selectcountrycodebtn(_ sender: Any) {
         
         let picker = MICountryPicker { (name, code) -> () in
-            print(code)
+            debugPrint(code)
         }
         let backButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(backButtonTapped))
         picker.navigationItem.leftBarButtonItem = backButton
@@ -170,77 +164,50 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
     }*/
     
     @objc func loginButtonClicked() {
-        
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [ .publicProfile ], viewController: self) { loginResult in
             switch loginResult {
             case .failed(let error):
-                print(error)
+                debugPrint(error)
             case .cancelled:
-                print("User cancelled login.")
+                debugPrint("User cancelled login.")
             case .success( _, _, _):
-                //print(grantedPermissions)
-                //print(declinedPermissions)
-                // print(accessToken)
-                //print(loginResult)
+                //debugPrint(grantedPermissions)
+                //debugPrint(declinedPermissions)
+                // debugPrint(accessToken)
+                //debugPrint(loginResult)
                 self.getuaerinfofromfacebook()
             }
         }
     }
 
-    func getuaerinfofromfacebook()
-    {
+    func getuaerinfofromfacebook() {
         let graphRequest:FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id, gender , name, first_name, last_name, picture.type(large), email"])
-        
         graphRequest.start(completionHandler: { (connection, result, error) -> Void in
-            
-           if ((error) != nil)
-            {
-                print("Error: \(error)")
-            }
-            else
-            {
-                print(result!)
-                
+            if ((error) != nil) {
+                debugPrint("Error: \(error)")
+            } else {
+                debugPrint(result!)
                 // let userdat = result as
                 let data:[String:Any] = result as! [String : Any]
-                
-                
-                
                 let  name  =   (data as AnyObject).object(forKey:"name") as! String
                 let  id  =   (data as AnyObject).object(forKey:"id") as! String
-                
-                
-             
-                 let email  = id + "@facebook.com"
-               
-                
+                let email  = id + "@facebook.com"
                 self.firstName = name
                 self.fbOrGoogleId = id
                 self.fbOrGoogleMail = email
-                
                 let imgURLString = "https://graph.facebook.com/\(id)/picture?width=640&height=640"
                 self.fborGoogleImageUrl = imgURLString
-                
                 let dic=[ facebookLoginUrl2: "\(id)"]
                 ApiManager.sharedInstance.protocolmain_Catagory = self
-                
                 ApiManager.sharedInstance.postData(dictonary: dic as NSDictionary, url: facebookLoginUrl)
                 
-              
-                
-            }
-            
-      })
-        
+            }  
+        })
     }
     
-    
-    
     //MARK: Google Sign In
-    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        
       /*  if (error == nil) {
             // Perform any operations on signed in user here.
             let userId = user.userID                  // For client-side use only!
@@ -255,80 +222,54 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
             self.SocialLoginapi(socialid: userId!, SocialParam: "google_id", Socialurl: "Account/google_login", resultcode: 3)
             // ...
         } */
-        
-        
-            if (error == nil) {
-                
-                let userId = user.userID
-                //  let idToken = user.authentication.idToken
-                let fullName = user.profile.name
-                
-               // let image = user.profile.imageURL(withDimension: 400)
-                
-                
-                 let profilePicture = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400)
-                
-               // let profilePicture = String(describing: GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400))
-                let email = user.profile.email
-                //  self.signOutGoogle()
-                
-                self.firstName = fullName!
-                self.fbOrGoogleId = userId!
-                self.fborGoogleImageUrl = String(describing: profilePicture!)
-                print(fborGoogleImageUrl)
-                
-                self.fbOrGoogleMail = email!
-                
-                let dic=[ googleLoginUrl2: "\(userId!)"]
-                
-                ApiManager.sharedInstance.protocolmain_Catagory = self
-                
-                ApiManager.sharedInstance.postData(dictonary: dic as NSDictionary, url: googleLoginUrl)
-                
-                //   ApiController.sharedInstance.parsPostData(dic, url: googleLoginUrl, reseltCode: 9)
-                
-
-            } else {
-            print("\(error.localizedDescription)")
+        if (error == nil) {    
+            let userId = user.userID
+            //  let idToken = user.authentication.idToken
+            let fullName = user.profile.name    
+            // let image = user.profile.imageURL(withDimension: 400)    
+            let profilePicture = GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400)
+            // let profilePicture = String(describing: GIDSignIn.sharedInstance().currentUser.profile.imageURL(withDimension: 400))
+            let email = user.profile.email
+            //  self.signOutGoogle()
+            self.firstName = fullName!
+            self.fbOrGoogleId = userId!
+            self.fborGoogleImageUrl = String(describing: profilePicture!)
+            debugPrint(fborGoogleImageUrl)
+            self.fbOrGoogleMail = email!
+            let dic=[ googleLoginUrl2: "\(userId!)"]
+            ApiManager.sharedInstance.protocolmain_Catagory = self
+            ApiManager.sharedInstance.postData(dictonary: dic as NSDictionary, url: googleLoginUrl)
+            //   ApiController.sharedInstance.parsPostData(dic, url: googleLoginUrl, reseltCode: 9)
+            
+        } else {
+            debugPrint("\(error.localizedDescription)")
         }
-        
     }
     
     // Present a view that prompts the user to sign in with Google
     func sign(_ signIn: GIDSignIn!,present viewController: UIViewController!) {
         self.present(viewController, animated: true, completion: nil)
     }
-    
+
     // Dismiss the "Sign in with Google" view
     func sign(_ signIn: GIDSignIn!,dismiss viewController: UIViewController!) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func showalert(message:String)  {
-        
+    func showalert(message:String)  {        
         DispatchQueue.main.async(execute: {
-            
             let alertController = UIAlertController(title:   "Alert".localized, message:message, preferredStyle: .alert)
-            
-            
-            let OKAction = UIAlertAction(title: "ok".localized, style: .default) { (action) in
-                
-            }
+            let OKAction = UIAlertAction(title: "ok".localized, style: .default) { (action) in }
             alertController.addAction(OKAction)
-            
-            self.present(alertController, animated: true) {
-                
-            }
-            
+            self.present(alertController, animated: true) { }
             
         })
-        
     }
-
 
     func onProgressStatus(value: Int) {
         if(value == 0 ){
             MBProgressHUD.hide(for: self.view, animated: true)
+
         }else if (value == 1){
             let spinnerActivity = MBProgressHUD.showAdded(to: self.view, animated: true)
             spinnerActivity.label.text = "Loading".localized
@@ -339,68 +280,47 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     
     func onerror(msg : String) {
         MBProgressHUD.hide(for: self.view, animated: true)
-        
         self.showalert(message: msg)
-        
-     }
+
+    }
     
-    
-    func onSuccessParse(data: AnyObject) {
-        
+    func onSuccessParse(data: AnyObject) {    
         logindata = data as! SignupLoginResponse
-        
-        if buttonPressed == "login"{
-            
-            if logindata.result == 1{
-                
+        if buttonPressed == "login" {
+            if logindata.result == 1 {
                 let userid = logindata.details!.userId
-                
                 let UserDeviceKey = UserDefaults.standard.string(forKey: "device_key")
-                
-                
-                print(UserDeviceKey!)
-                
+                debugPrint(UserDeviceKey!)
                 let uniqueid =  UserDefaults.standard.string(forKey: "unique_number")
-                
                 ApiManager.sharedInstance.protocolmain_Catagory = self
                 ApiManager.sharedInstance.UserDeviceId(USERID: userid!, USERDEVICEID: UserDeviceKey! , FLAG: "1",UNIQUEID: uniqueid!)
                 NsUserDekfaultManager.SingeltionInstance.loginuser(user_id: self.logindata.details!.userId!,name: self.logindata.details!.userName!, image: (self.logindata.details?.userImage)!, email: self.logindata.details!.userEmail!, phonenumber: (self.logindata.details?.userPhone!)!, status: self.logindata.details!.status!,password: self.logindata.details!.userPassword!,facbookimage: (self.logindata.details?.facebookImage!)!, googleimage: (self.logindata.details?.googleImage)!)
                /* let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let revealViewController:MapViewController = storyBoard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                
                 self.present(revealViewController, animated:true, completion:nil)*/
-                
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let nextController: MapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                
-                if let window = self.view.window{
+                if let window = self.view.window { 
                     window.rootViewController = nextController
+
                 }
-                
-                
-                
-            }else{
+            } else {
                 self.showalert(message: logindata.message!)
                 
             }
-            
         }
-        
-        
-        if buttonPressed == "facebook"{
-            
-            if logindata.result == 0 // 0 means user Does not exis mens us fb or google id se koi user register nhi ha
+
+        if buttonPressed == "facebook"{   
+            if logindata.result == 0 // 0 means user Does not exis mens us fb or google id se koi user register nhi ha 
             {
-                
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let vc = storyBoard.instantiateViewController(withIdentifier: "SignupViewControllerWithFacebookGoogle") as! SignupViewControllerWithFacebookGoogle
-                
                 vc.facebookFirstName = self.firstName
                 vc.facebookLastName = self.lastName
                 vc.facebookId = self.fbOrGoogleId
@@ -408,54 +328,36 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
                 vc.facebookImage = fborGoogleImageUrl
                 vc.movedFrom = "facebook"
                 self.present(vc, animated: true, completion: nil)
+
             }
-            
-            
-            
-            if logindata.result == 1
-            {
-                
-              let userid = logindata.details!.userId
-                
+
+            if logindata.result == 1 {
+                let userid = logindata.details!.userId
                 let UserDeviceKey = UserDefaults.standard.string(forKey: "device_key")
-                
-                print(UserDeviceKey!)
-                
+                debugPrint(UserDeviceKey!)
                 let uniqueid =  UserDefaults.standard.string(forKey: "unique_number")
-                
                 ApiManager.sharedInstance.protocolmain_Catagory = self
                 ApiManager.sharedInstance.UserDeviceId(USERID: userid!, USERDEVICEID: UserDeviceKey! , FLAG: "1",UNIQUEID: uniqueid!)
-                
-                
                 NsUserDekfaultManager.SingeltionInstance.loginuser(user_id: self.logindata.details!.userId!,name: self.logindata.details!.userName!, image: (self.logindata.details?.userImage)!, email: self.logindata.details!.userEmail!, phonenumber: (self.logindata.details?.userPhone!)!, status: self.logindata.details!.status!,password: self.logindata.details!.userPassword!,facbookimage: (self.logindata.details?.facebookImage!)!, googleimage: (self.logindata.details?.googleImage)!)
-                
-                
-                
-                
               /*  let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let revealViewController:MapViewController = storyBoard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                
                 self.present(revealViewController, animated:true, completion:nil)*/
-                
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let nextController: MapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                
                 if let window = self.view.window{
                     window.rootViewController = nextController
+                    
                 }
-                
+                debugPrint("user Exist verifyed plz save detail and move to home Screen")
 
-                print("user Exist verifyed plz save detail and move to home Screen")
             }
         }
-        
-        if buttonPressed == "google"{
-            
+
+        if buttonPressed == "google"{   
             if logindata.result == 0 // 0 means user Does not exis mens us fb or google id se koi user register nhi ha
             {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let vc = storyBoard.instantiateViewController(withIdentifier: "SignupViewControllerWithFacebookGoogle") as! SignupViewControllerWithFacebookGoogle
-                
                 vc.googleFirstName = self.firstName
                 vc.googleLastName = self.lastName
                 vc.googleId = self.fbOrGoogleId
@@ -465,70 +367,39 @@ class LoginViewController: UIViewController,GIDSignInUIDelegate,GIDSignInDelegat
                 self.present(vc, animated: true, completion: nil)
             }
             
-            if logindata.result == 1
-            {
-                
+            if logindata.result == 1 {
                 let userid = logindata.details!.userId
-                
                 let UserDeviceKey = UserDefaults.standard.string(forKey: "device_key")
-                
-                
-                print(UserDeviceKey!)
-                
-                let uniqueid =  UserDefaults.standard.string(forKey: "unique_number")
-                
+                debugPrint(UserDeviceKey!)
+                let uniqueid =  UserDefaults.standard.string(forKey: "unique_number")                
                 ApiManager.sharedInstance.protocolmain_Catagory = self
                 ApiManager.sharedInstance.UserDeviceId(USERID: userid!, USERDEVICEID: UserDeviceKey! , FLAG: "1",UNIQUEID: uniqueid!)
-                
-
-                
                 NsUserDekfaultManager.SingeltionInstance.loginuser(user_id: self.logindata.details!.userId!,name: self.logindata.details!.userName!, image: (self.logindata.details?.userImage)!, email: self.logindata.details!.userEmail!, phonenumber: (self.logindata.details?.userPhone!)!, status: self.logindata.details!.status!,password: self.logindata.details!.userPassword!,facbookimage: (self.logindata.details?.facebookImage!)!, googleimage: (self.logindata.details?.googleImage)!)
-                
-                
-                
-                
                /* let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let revealViewController:MapViewController = storyBoard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                
                 self.present(revealViewController, animated:true, completion:nil)*/
-                
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let nextController: MapViewController = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                
                 if let window = self.view.window{
                     window.rootViewController = nextController
                 }
-                
-                
-                print("user Exist verifyed plz save detail and move to home Screen")
+                debugPrint("user Exist verifyed plz save detail and move to home Screen")
             }
-            
         }
         
-        
-        if buttonPressed == "forgot"{
-            
-            if logindata.result == 1
-            {
+        if buttonPressed == "forgot"{    
+            if logindata.result == 1 {
                 let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                 let vc = storyBoard.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as! ForgotPasswordViewController
                 vc.oldPassword =   logindata.details!.userPassword!
                 vc.userId = logindata.details!.userId!
                 self.present(vc, animated: true, completion: nil)
-                
-            }else{
-                
+
+            } else {
                 self.showalert(message: logindata.message!)
-                
+
             }
         }
-        
-        
     }
 
-
-
-    
-
-   
 }

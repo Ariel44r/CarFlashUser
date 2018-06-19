@@ -28,7 +28,7 @@ class ACViewController: UIViewController, UIWebViewDelegate {
         
         ProductLink = GlobalVarible.UserBaseUrl + "view_card.php?user_id=\(Userid)"
         
-        print(ProductLink)
+        debugPrint(ProductLink)
         
         let url = NSURL(string: ProductLink)
         let request = URLRequest(url: url! as URL)
@@ -70,7 +70,7 @@ class ACViewController: UIViewController, UIWebViewDelegate {
                 self.dismiss(animated: true, completion: nil)   
             }
             
-            print(yourTargetUrl)
+            debugPrint(yourTargetUrl)
             
         }
 

@@ -163,11 +163,11 @@ static var firstcarname: String = ""
             return
         }
         guard #available(iOS 10, *) else {
-            print(url)
+            debugPrint(url)
             completion(UIApplication.shared.openURL(url))
             return
         }
-        print(url)
+        debugPrint(url)
         UIApplication.shared.open(url, options: [:]
             , completionHandler: completion)
     }
@@ -210,7 +210,7 @@ var longroute: [Double] = [Double]()
 
 func redrawRoute(map: GMSMapView , lat: Double , lng: Double){
     
-    print("1")
+    debugPrint("1")
    
     
    // map.clear()
@@ -228,8 +228,8 @@ func redrawRoute(map: GMSMapView , lat: Double , lng: Double){
     longroute.append(lng)
     
     
-    print(longroute)
-    print(latroute)
+    debugPrint(longroute)
+    debugPrint(latroute)
     
    // setuplocationMarker1(CLLocationCoordinate2D(latitude: GlobalVarible.UserDropLat, longitude: GlobalVarible.UserDropLng))
     
@@ -237,7 +237,7 @@ func redrawRoute(map: GMSMapView , lat: Double , lng: Double){
     for  i  in  0 ... latroute.count - 1 {
         path.addCoordinate(CLLocationCoordinate2D(latitude: latroute[i], longitude: longroute[i]))
     }
-    print("******\(path.count())")
+    debugPrint("******\(path.count())")
     routePolyline = GMSPolyline(path: path)
     routePolyline.strokeWidth = 5.0
     routePolyline.strokeColor = UIColor.grayColor()

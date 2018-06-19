@@ -103,7 +103,7 @@ class ChooseCategoryViewController: UIViewController,UITableViewDelegate,UITable
         
         let newString = rentaldata.details![index].rentalPakageCar![indexPath.row].carTypeImage!
         
-        print(newString)
+        debugPrint(newString)
         
         let url = imageUrl + newString
         
@@ -132,7 +132,7 @@ class ChooseCategoryViewController: UIViewController,UITableViewDelegate,UITable
         
         choosecategorytabel.deselectRow(at: indexPath as IndexPath, animated: true)
         let row = indexPath.row
-        print("Row: \(row)")
+        debugPrint("Row: \(row)")
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         let confirmbookingrentalviewcontroller = storyBoard.instantiateViewController(withIdentifier: "ConfirmBookingRentalViewController") as! ConfirmBookingRentalViewController

@@ -72,7 +72,7 @@ class ChatViewController: JSQMessagesViewController {
         
       // let query = ref1.child("RideTable").child(GlobalVarible.checkRideId).child("Chat").queryLimited(toLast: 10)
         
-        print(query)
+        debugPrint(query)
         
        // let query = Constants.refs.databaseChats.queryLimited(toLast: 10)
         
@@ -152,7 +152,7 @@ class ChatViewController: JSQMessagesViewController {
     {
         // Return the number of messages
         
-        print(messages.count)
+        debugPrint(messages.count)
         return messages.count
     }
     

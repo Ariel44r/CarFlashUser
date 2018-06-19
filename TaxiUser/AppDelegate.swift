@@ -88,7 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,MainCate
         
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             GlobalVarible.appversion = version
-            print(version)
+            debugPrint(version)
         }
         
         IQKeyboardManager.sharedManager().enable = true
@@ -196,7 +196,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,MainCate
             
             
             
-            // print(appVersion)
+            // debugPrint(appVersion)
             let message: String = "New Version Available. Please update the app first.".localized
             let alertController = UIAlertController(
                 title: "UPDATE AVAILABLE ".localized, // This gets overridden below.
@@ -293,15 +293,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,MainCate
         if CLLocationManager.locationServicesEnabled() {
             switch(CLLocationManager.authorizationStatus()) {
             case .notDetermined, .restricted, .denied:
-                print("No access")
+                debugPrint("No access")
                 
                 self.showalert5(message: "To continue, let your device turn on location, which uses Google's location services.Please turn on your location from settings.".localized)
                 
             case .authorizedAlways, .authorizedWhenInUse:
-                print("Access")
+                debugPrint("Access")
             }
         } else {
-            print("Location services are not enabled")
+            debugPrint("Location services are not enabled")
         }
             
         }
@@ -346,10 +346,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,MainCate
     
     
     func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
-        print("Notifications status: \(notificationSettings)")
+        debugPrint("Notifications status: \(notificationSettings)")
         
         if notificationSettings.types == UIUserNotificationType(rawValue: 0){
-            print(notificationSettings.types)
+            debugPrint(notificationSettings.types)
             
             GlobalVarible.notificationvalue = 1
             
@@ -360,7 +360,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,MainCate
             
             
         }else{
-            print(notificationSettings.types)
+            debugPrint(notificationSettings.types)
             
             GlobalVarible.notificationvalue = 0
         }
@@ -376,7 +376,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,MainCate
         let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
         
         GlobalVarible.notificationvalue = 0
-        print(deviceTokenString
+        debugPrint(deviceTokenString
         )
         // let device_id = UIDevice.currentDevice().identifierForVendor?.UUIDString
         
@@ -414,14 +414,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,MainCate
     // Called when APNs failed to register the device for push notifications
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
       
-        print("APNs registration failed: \(error)")
+        debugPrint("APNs registration failed: \(error)")
     }
     
     
     func application(_ application: UIApplication, didReceiveRemoteNotification data: [AnyHashable : Any]) {
         // Print notification payload data
         
-        print("Push notification received: \(data)")
+        debugPrint("Push notification received: \(data)")
         
         
             
@@ -430,14 +430,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,MainCate
             if let alert = aps["alert"] as? NSString {
                 //Do stuff
                 part1 = alert as String
-                  print("Part 1: \(part1)")
+                  debugPrint("Part 1: \(part1)")
                 
                 
                 part2 = aps["ride_id"] as! String
-                print("Part 2: \(part2)")
+                debugPrint("Part 2: \(part2)")
                 
                 part3 = aps["ride_status"] as! String
-                print("Part 3: \(part3)")
+                debugPrint("Part 3: \(part3)")
                 
             }
         }
@@ -997,7 +997,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate,MainCate
     }
     
     func onSuccessExecution(msg: String) {
-        print("msg")
+        debugPrint("msg")
         
     }
     

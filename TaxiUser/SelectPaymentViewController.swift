@@ -133,7 +133,7 @@ class SelectPaymentViewController: UIViewController,MainCategoryProtocol,UITable
         
         
         
-        //  print(mydata.msg![indexPath.row].paymentOptionId)
+        //  debugPrint(mydata.msg![indexPath.row].paymentOptionId)
         tableView.reloadData()
         
         
@@ -176,7 +176,7 @@ class SelectPaymentViewController: UIViewController,MainCategoryProtocol,UITable
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

@@ -159,7 +159,7 @@ class CouponsCodeViewController: UIViewController,MainCategoryProtocol {
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

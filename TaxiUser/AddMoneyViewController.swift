@@ -184,7 +184,7 @@ class AddMoneyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     
     func userDidCancel(_ paymentViewController: CardIOPaymentViewController!) {
-        print("caneceld")
+        debugPrint("caneceld")
         paymentViewController?.dismiss(animated: true, completion: nil)
         
     }
@@ -230,11 +230,11 @@ class AddMoneyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             // get stripe token for current card
             STPAPIClient.shared().createToken(withCard: card) { token, error in
                 if let token = token {
-                    print(token)
+                    debugPrint(token)
                     // SVProgressHUD.showSuccessWithStatus("Stripe token successfully received: \(token)")
                     //  self.placeOrder(token)
                 } else {
-                    print(error!)
+                    debugPrint(error!)
                     // SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
                 }
             }
@@ -248,11 +248,11 @@ class AddMoneyViewController: UIViewController,UITableViewDelegate,UITableViewDa
             // get stripe token for current card
             STPAPIClient.shared().createToken(withCard: card) { token, error in
                 if let token = token {
-                    print(token)
+                    debugPrint(token)
                     // SVProgressHUD.showSuccessWithStatus("Stripe token successfully received: \(token)")
                     self.saveCard(token: token)
                 } else {
-                    print(error!)
+                    debugPrint(error!)
                     //  SVProgressHUD.showErrorWithStatus(error?.localizedDescription)
                 }
             }
@@ -267,11 +267,11 @@ class AddMoneyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     // charge money from backend
     func saveCard(token: STPToken) {
         
-        print(token)
-        print(newGeneratedCardName)
+        debugPrint(token)
+        debugPrint(newGeneratedCardName)
         
         let fullExpiry =  self.newGeneratedCardExpiryMonth + "/"  +  self.newGeneratedCardExpiryYear
-        print(fullExpiry)
+        debugPrint(fullExpiry)
         let email = NsUserDekfaultManager.SingeltionInstance.getuserdetaild(key: NsUserDekfaultManager.Keyemail)
         
         let Userid = NsUserDekfaultManager.SingeltionInstance.getuserdetaild(key: NsUserDekfaultManager.Keyuserid)
@@ -395,7 +395,7 @@ class AddMoneyViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

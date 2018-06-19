@@ -214,7 +214,7 @@ class ProfileViewController: UIViewController,MainCategoryProtocol,UIImagePicker
         let Gallerybutton = UIAlertAction(title: "Gallery".localized, style: .default, handler: { (alert) in
             
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum){
-                print("Button capture")
+                debugPrint("Button capture")
                 let imagePicker = UIImagePickerController()
                 
                 imagePicker.delegate = self
@@ -325,7 +325,7 @@ class ProfileViewController: UIViewController,MainCategoryProtocol,UIImagePicker
             
             ]
             
-            print(dic)
+            debugPrint(dic)
             
             ApiManager.sharedInstance.protocolmain_Catagory = self
             ApiManager.sharedInstance.logoutUser(dictonary: dic as NSDictionary, url: LogoutUrl)
@@ -416,7 +416,7 @@ class ProfileViewController: UIViewController,MainCategoryProtocol,UIImagePicker
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

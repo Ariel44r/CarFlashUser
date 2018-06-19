@@ -82,7 +82,7 @@ class EmergencyViewController: UIViewController,MainCategoryProtocol {
         self.dropDown.show()
         
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            print("Selected item: \(item) at index: \(index)")
+            debugPrint("Selected item: \(item) at index: \(index)")
             
             self.PhoneNumber = self.emergencycontactdata!.details![index].sosNumber!
             
@@ -91,7 +91,7 @@ class EmergencyViewController: UIViewController,MainCategoryProtocol {
             
             self.callyouremergencytext.text = self.emergencycontactdata!.details![index].sosName!
             
-            print(self.PhoneNumber)
+            debugPrint(self.PhoneNumber)
             
             
             self.dropDown.hide()
@@ -165,7 +165,7 @@ class EmergencyViewController: UIViewController,MainCategoryProtocol {
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

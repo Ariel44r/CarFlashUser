@@ -207,7 +207,7 @@ class SignupViewController: UIViewController,MainCategoryProtocol,MICountryPicke
             signUpUrl6:"\(self.lastName.text!)",
             signUpUrl7:"\(GlobalVarible.languagecode)"
         ]
-        print(dic)
+        debugPrint(dic)
         ApiManager.sharedInstance.protocolmain_Catagory = self
         ApiManager.sharedInstance.postData(dictonary: dic as NSDictionary, url: signUpUrl)
             
@@ -230,7 +230,7 @@ class SignupViewController: UIViewController,MainCategoryProtocol,MICountryPicke
 
         
         let picker = MICountryPicker { (name, code) -> () in
-            print(code)
+            debugPrint(code)
         }
         
         picker.delegate = self
@@ -322,7 +322,7 @@ class SignupViewController: UIViewController,MainCategoryProtocol,MICountryPicke
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     
@@ -345,7 +345,7 @@ class SignupViewController: UIViewController,MainCategoryProtocol,MICountryPicke
             let UserDeviceKey = UserDefaults.standard.string(forKey: "device_key")
             
                       
-            print(UserDeviceKey!)
+            debugPrint(UserDeviceKey!)
             let uniqueid =  UserDefaults.standard.string(forKey: "unique_number")
             
             ApiManager.sharedInstance.protocolmain_Catagory = self

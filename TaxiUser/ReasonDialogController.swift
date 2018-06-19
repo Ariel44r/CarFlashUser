@@ -142,10 +142,10 @@ class ReasonDialogController: UIViewController,UITableViewDataSource,UITableView
        // let cells = tableView.cellForRow(at: indexPath) as! ReasonCell
         let row = indexPath.row
         check = indexPath.row
-        print("Row:\(row)")
+        debugPrint("Row:\(row)")
         cancel_btn.isEnabled = true
         GlobalVarible.cancelId = self.reasonData.msg![row].reasonId!
-        print(GlobalVarible.cancelId)
+        debugPrint(GlobalVarible.cancelId)
         cancel_btn.layer.backgroundColor = ReasonDialogController.getColorFromHex(hexString: "#000000").cgColor
         tableView.reloadData()
         
@@ -228,7 +228,7 @@ class ReasonDialogController: UIViewController,UITableViewDataSource,UITableView
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

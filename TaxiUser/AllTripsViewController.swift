@@ -78,23 +78,23 @@ class AllTripsViewController: UIViewController, CarbonTabSwipeNavigationDelegate
             let mainStory = UIStoryboard.init(name: "Main", bundle: nil)
             let vc  = mainStory.instantiateViewController(withIdentifier: "UpComingViewController") as! UpComingViewController
             let INDEX: Int  = Int(index)
-            print(INDEX)
+            debugPrint(INDEX)
             
             return vc
             
         case 1:
             
-            print("Hellllllllllllllllllllloooooo  index  is " , index )
+            debugPrint("Hellllllllllllllllllllloooooo  index  is " , index )
             
             let mainStory = UIStoryboard.init(name: "Main", bundle: nil)
             let vc  = mainStory.instantiateViewController(withIdentifier: "YourRideViewController") as! YourRideViewController
             let INDEX: Int  = Int(index)
-            print(INDEX)
+            debugPrint(INDEX)
             
             
             /*   let vc  = self.storyboard!.instantiateViewController(withIdentifier: "NewRideVCID") as!  NewRideVC
              let INDEX: Int  = Int(index)
-             print(INDEX)*/
+             debugPrint(INDEX)*/
             
             return vc
             

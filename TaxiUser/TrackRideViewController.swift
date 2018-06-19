@@ -234,7 +234,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
         let query = self.ref.child("Chat").child(GlobalVarible.checkRideId)
         // let query = ref1.child("RideTable").child(GlobalVariables.rideid).child("Chat").queryLimited(toLast: 10)
         
-        print(query)
+        debugPrint(query)
         
         
         _ = query.observe(.childAdded, with: { [weak self] snapshot in
@@ -272,7 +272,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
       //  drivernameview.layer.borderWidth = 1.0
       //  drivernameview.layer.cornerRadius = 4
         
-        print(GlobalVarible.checkRideId)
+        debugPrint(GlobalVarible.checkRideId)
         
         NotificationCenter.default.addObserver(
             self,
@@ -394,8 +394,8 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
         
         if(GlobalVarible.checkridestatus == "3"){
             
-            print(DRIVERLAT)
-            print(DRIVERLNG)
+            debugPrint(DRIVERLAT)
+            debugPrint(DRIVERLNG)
             
             currentStatus = GlobalVarible.checkridestatus
             
@@ -665,7 +665,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 self.locationManager.stopUpdatingLocation()
             }
             
-            print(location)
+            debugPrint(location)
             
            reverseGeocodeCoordinate(coordinate: location.coordinate)
             
@@ -714,12 +714,12 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
         let lat1 = degreesToRadians(degrees: Double(Lat)!)
         let lon1 = degreesToRadians(degrees: Double(Lng)!)
         
-        print(Lat)
+        debugPrint(Lat)
         
         let lat2 = degreesToRadians(degrees: point.latitude);
         let lon2 = degreesToRadians(degrees: point.longitude);
         
-        print(point.latitude)
+        debugPrint(point.latitude)
         
         let dLon = lon2 - lon1;
         
@@ -765,13 +765,13 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
         }else{
             
-            print("hello")
+            debugPrint("hello")
         }
         
         
         
     }) { (error) in
-    print(error.localizedDescription)
+    debugPrint(error.localizedDescription)
     }
     
 
@@ -787,7 +787,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
         
         ref.child("Drivers_A").child(driverid).observe(.value, with: { (snapshot) in
             
-            print(self.driverid)
+            debugPrint(self.driverid)
             
             
           //  if let currentData = (snapshot.value! as! NSDictionary).object(forKey: self.driverid) as? [String:AnyObject]{
@@ -805,8 +805,8 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
             
              let bearningdegree = value?["bearingfactor"] as! String
                 
-                print(latitude)
-                print(bearningdegree)
+                debugPrint(latitude)
+                debugPrint(bearningdegree)
             
             self.startlat = latitude
             self.startlng = longitude
@@ -842,11 +842,11 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
             
             let distanceInMeter =  coordinateFrom.distance(from: coordinateTo)
             
-            print(distanceInMeter)
+            debugPrint(distanceInMeter)
             
             let totaldistancevalue = Double(self.totaldistance/30)
             
-            print(totaldistancevalue)
+            debugPrint(totaldistancevalue)
             
             if distanceInMeter < totaldistancevalue{
                 
@@ -868,7 +868,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
           //  }
             
         }) { (error) in
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         }
         
         
@@ -884,7 +884,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
         
         ref.child("Drivers_A").child(driverid).observe(.value, with: { (snapshot) in
             
-            print(self.driverid)
+            debugPrint(self.driverid)
             
             
             
@@ -906,8 +906,8 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
             
             let bearningdegree = value?["bearingfactor"] as! String
             
-            print(latitude1)
-            print(bearningdegree)
+            debugPrint(latitude1)
+            debugPrint(bearningdegree)
             
             
         
@@ -952,12 +952,12 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
         
         let distanceInMeter =  coordinateFrom.distance(from: coordinateTo)
         
-        print(distanceInMeter)
+        debugPrint(distanceInMeter)
             
             
             let totaldistancevalue = Double(self.totaldistance/30)
             
-            print(totaldistancevalue)
+            debugPrint(totaldistancevalue)
          
         if distanceInMeter < totaldistancevalue{
             
@@ -976,7 +976,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
       //  self.cresterootviatrack(lat: latitude, long: longitude,BearningFactor: bearningdegree)
         
         }) { (error) in
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         }
         
         
@@ -1022,7 +1022,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 let directionsURLString = baseURLDirections + "origin=" + originLocation + "&destination=" + destinationLocation + "&key=" + GlobalVarible.googlemapkeys
                 
                 
-                print(directionsURLString)
+                debugPrint(directionsURLString)
                 
                 //  directionsURLString = directionsURLString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
                 
@@ -1049,7 +1049,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                             
                               self.totaldistance = json["routes"][0]["legs"][0]["distance"]["value"].int!
                             
-                            print(self.totaldistance)
+                            debugPrint(self.totaldistance)
                             
                         }
                         
@@ -1236,7 +1236,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     
@@ -1263,7 +1263,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
                 self.redmarkerlocation.text = mydatapage.details!.dropLocation
                 
-                print(mydatapage.details!.dropLocation)
+                debugPrint(mydatapage.details!.dropLocation)
                 
                 self.greenmarkerlocation.text = mydatapage.details!.pickupLocation
                 
@@ -1274,7 +1274,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
             UserDefaults.standard.setValue(currentStatus, forKey:"firebaseride_status")
                 
-                 print(currentStatus)
+                 debugPrint(currentStatus)
                 
                 Driverdroplocation = mydatapage.details!.driverLocation!
                 
@@ -1309,7 +1309,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
                 
                 if driverratingvalue == ""{
-                    print("hjjk")
+                    debugPrint("hjjk")
                 }else{
                     
                     // ratingview.rating = Float(driverratingvalue!)!
@@ -1318,16 +1318,16 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
                 let drivertypeimage = mydatapage.details!.driverImage
                 
-                print(drivertypeimage!)
+                debugPrint(drivertypeimage!)
                 
                 if(drivertypeimage == ""){
                     driverimageview.image = UIImage(named: "profileeee") as UIImage?
-                    print("No Image")
+                    debugPrint("No Image")
                 }else{
                     let newUrl = imageUrl + drivertypeimage!
                     
                     // let url = "http://apporio.co.uk/apporiotaxi/\(drivertypeimage!)"
-                    // print(url)
+                    // debugPrint(url)
                     
                     let url1 = NSURL(string: newUrl)
                     driverimageview!.af_setImage(withURL:
@@ -1340,8 +1340,8 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
                 if(currentStatus == "3"){
                     
-                    print(DRIVERLAT)
-                    print(DRIVERLNG)
+                    debugPrint(DRIVERLAT)
+                    debugPrint(DRIVERLNG)
                     
                   //  let origin = GlobalVarible.PickUpLat + "," + GlobalVarible.PickUpLng
                  //   let destination = DRIVERLAT + "," + DRIVERLNG
@@ -1464,7 +1464,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
             }else{
                 
-                print("Hello")
+                debugPrint("Hello")
                 
                 
             }
@@ -1536,7 +1536,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
                 
                 if driverratingvalue == ""{
-                    print("hjjk")
+                    debugPrint("hjjk")
                 }else{
                     
                     // ratingview.rating = Float(driverratingvalue!)!
@@ -1545,16 +1545,16 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
                 let drivertypeimage = changedata.details!.driverImage
                 
-                print(drivertypeimage!)
+                debugPrint(drivertypeimage!)
                 
                 if(drivertypeimage == ""){
                     driverimageview.image = UIImage(named: "profileeee") as UIImage?
-                    print("No Image")
+                    debugPrint("No Image")
                 }else{
                     let newUrl = imageUrl + drivertypeimage!
                     
                     // let url = "http://apporio.co.uk/apporiotaxi/\(drivertypeimage!)"
-                    // print(url)
+                    // debugPrint(url)
                     
                     let url1 = NSURL(string: newUrl)
                     driverimageview!.af_setImage(withURL:
@@ -1567,8 +1567,8 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
                 if(currentStatus == "3"){
                     
-                    print(DRIVERLAT)
-                    print(DRIVERLNG)
+                    debugPrint(DRIVERLAT)
+                    debugPrint(DRIVERLNG)
                     
                     //  let origin = GlobalVarible.PickUpLat + "," + GlobalVarible.PickUpLng
                     //   let destination = DRIVERLAT + "," + DRIVERLNG
@@ -1675,7 +1675,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 
                 let shareText = API_URL.sharelinkurl + "Ride/Track/" + ridesharedata.details!
                 
-                print(shareText)
+                debugPrint(shareText)
                 
                 let activityViewController = UIActivityViewController(activityItems: [shareText], applicationActivities: nil)
                 activityViewController.popoverPresentationController?.sourceView = self.view
@@ -1683,7 +1683,7 @@ class TrackRideViewController: UIViewController,CLLocationManagerDelegate,GMSMap
                 activityViewController.popoverPresentationController?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
                 
                 self.present(activityViewController, animated: true) {
-                    print("option menu presented")
+                    debugPrint("option menu presented")
                 }
                 
 
@@ -1713,12 +1713,12 @@ extension TrackRideViewController {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print(place)
-        print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
-        print("Place attributions: \(place.coordinate.latitude)")
-        print("Place attributions: \(place.coordinate.longitude)")
+        debugPrint(place)
+        debugPrint("Place name: \(place.name)")
+        debugPrint("Place address: \(place.formattedAddress)")
+        debugPrint("Place attributions: \(place.attributions)")
+        debugPrint("Place attributions: \(place.coordinate.latitude)")
+        debugPrint("Place attributions: \(place.coordinate.longitude)")
         //  manualloactioncheck = "manual"
         
         // GlobalVarible.Pickuptext = place.formattedAddress!
@@ -1735,7 +1735,7 @@ extension TrackRideViewController {
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
         // TODO: handle the error.
-        print("Error: ", error.localizedDescription)
+        debugPrint("Error: ", error.localizedDescription)
     }
     
     // User canceled the operation.

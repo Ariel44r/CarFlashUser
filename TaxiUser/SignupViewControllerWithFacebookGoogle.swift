@@ -87,11 +87,11 @@ class SignupViewControllerWithFacebookGoogle: UIViewController,MainCategoryProto
             if(googleImage == ""){
                 userimageview.image = UIImage(named: "profileeee") as UIImage?
                
-                print("No Image")
+                debugPrint("No Image")
             }else{
                 let newUrl = googleImage
                 // let url = "http://apporio.co.uk/apporiotaxi/\(drivertypeimage!)"
-                print(newUrl)
+                debugPrint(newUrl)
                 
                 let url1 = NSURL(string: newUrl)
                 
@@ -115,11 +115,11 @@ class SignupViewControllerWithFacebookGoogle: UIViewController,MainCategoryProto
             if(facebookImage == ""){
                 userimageview.image = UIImage(named: "profileeee") as UIImage?
                 
-                print("No Image")
+                debugPrint("No Image")
             }else{
                 let newUrl = facebookImage
                 // let url = "http://apporio.co.uk/apporiotaxi/\(drivertypeimage!)"
-                print(newUrl)
+                debugPrint(newUrl)
                 
                 let url1 = NSURL(string: newUrl)
                 
@@ -231,10 +231,10 @@ class SignupViewControllerWithFacebookGoogle: UIViewController,MainCategoryProto
             ]
             
             for items in dic{
-                print(items.1)
+                debugPrint(items.1)
             }
             
-            print(dic)
+            debugPrint(dic)
             ApiManager.sharedInstance.protocolmain_Catagory = self
             ApiManager.sharedInstance.postData(dictonary: dic as NSDictionary, url: facebookSignupUrl)
             
@@ -278,7 +278,7 @@ class SignupViewControllerWithFacebookGoogle: UIViewController,MainCategoryProto
         
         
         let picker = MICountryPicker { (name, code) -> () in
-            print(code)
+            debugPrint(code)
         }
         
         picker.delegate = self
@@ -354,7 +354,7 @@ class SignupViewControllerWithFacebookGoogle: UIViewController,MainCategoryProto
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     
@@ -378,7 +378,7 @@ class SignupViewControllerWithFacebookGoogle: UIViewController,MainCategoryProto
             let UserDeviceKey = UserDefaults.standard.string(forKey: "device_key")
             
                       
-            print(UserDeviceKey!)
+            debugPrint(UserDeviceKey!)
             
             let uniqueid =  UserDefaults.standard.string(forKey: "unique_number")
             

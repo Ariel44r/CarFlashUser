@@ -182,7 +182,7 @@ class RideLaterViewController: UIViewController,MainCategoryProtocol {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        print(GlobalVarible.paymentmethod)
+        debugPrint(GlobalVarible.paymentmethod)
         selectpaymentmethodtext.text = GlobalVarible.paymentmethod
         
         if(GlobalVarible.couponcodevalue == 1){
@@ -424,7 +424,7 @@ class RideLaterViewController: UIViewController,MainCategoryProtocol {
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

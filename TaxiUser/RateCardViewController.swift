@@ -465,7 +465,7 @@ class RateCardViewController: UIViewController,UIPickerViewDelegate,UITextFieldD
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

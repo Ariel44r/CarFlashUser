@@ -27,7 +27,7 @@ class PaymentWebViewController: UIViewController,UIWebViewDelegate {
         
         ProductLink = API_URL.commondomain + "Application/View_Ride_info/\(currentrideid)"
         
-        print(ProductLink)
+        debugPrint(ProductLink)
         
         let url = NSURL(string: ProductLink)
         let request = URLRequest(url: url! as URL)
@@ -56,7 +56,7 @@ class PaymentWebViewController: UIViewController,UIWebViewDelegate {
         {
             urlString = yourTargetUrl.absoluteString
             
-            print(yourTargetUrl)
+            debugPrint(yourTargetUrl)
             
         }
         

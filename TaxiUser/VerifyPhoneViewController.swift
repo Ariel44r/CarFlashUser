@@ -81,7 +81,7 @@ class VerifyPhoneViewController: UIViewController,MainCategoryProtocol,MICountry
     @IBAction func Selectcountrycode_btn(_ sender: Any) {
         
         let picker = MICountryPicker { (name, code) -> () in
-            print(code)
+            debugPrint(code)
         }
         
         picker.delegate = self
@@ -224,7 +224,7 @@ class VerifyPhoneViewController: UIViewController,MainCategoryProtocol,MICountry
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

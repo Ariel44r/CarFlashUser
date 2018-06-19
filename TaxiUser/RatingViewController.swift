@@ -81,7 +81,7 @@ class RatingViewController: UIViewController,RatingViewDelegate,MainCategoryProt
     }
     
     func ratingView(_ ratingView: RatingView, didChangeRating newRating: Float) {
-        print("newRating: \(newRating)")
+        debugPrint("newRating: \(newRating)")
         let rating = newRating
         // var  ratingValue = String(rating)
         ratingStar = String(rating)
@@ -145,7 +145,7 @@ class RatingViewController: UIViewController,RatingViewDelegate,MainCategoryProt
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

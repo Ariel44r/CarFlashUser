@@ -108,7 +108,7 @@ class NotificationViewController: UIViewController,UITableViewDelegate,UITableVi
         
         newnotificationtable.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
-        print("Row: \(row)")
+        debugPrint("Row: \(row)")
         
         if (notificationdata.details![indexPath.row].pushWebUrl == "")
         {
@@ -173,7 +173,7 @@ class NotificationViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

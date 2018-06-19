@@ -76,7 +76,7 @@ class AboutusViewController: UIViewController,MainCategoryProtocol {
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     
@@ -100,7 +100,7 @@ class AboutusViewController: UIViewController,MainCategoryProtocol {
                 
                 abouttextview.attributedText =  str
             } catch {
-                print(error)
+                debugPrint(error)
             }
             
 
@@ -114,7 +114,7 @@ class AboutusViewController: UIViewController,MainCategoryProtocol {
                 
                 abouttextview.attributedText =  str
             } catch {
-                print(error)
+                debugPrint(error)
             }
             
 
@@ -149,7 +149,7 @@ extension String {
            // return try NSAttributedString(data: data, options: [NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType,NSCharacterEncodingDocumentAttribute:String.Encoding.utf8], documentAttributes: nil)
             
         } catch let error as NSError {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
             return  nil
         }
     }

@@ -150,7 +150,7 @@ class UpComingViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
                 let newUrl = imageUrl + cartypeimage!
                 //  let url = "http://apporio.co.uk/apporiotaxi/\(cartypeimage!)"
-                print(newUrl)
+                debugPrint(newUrl)
                 
                 let url1 = NSURL(string: newUrl)
                 cell.driverimage!.af_setImage(withURL:
@@ -173,7 +173,7 @@ class UpComingViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             let url1 = NSURL(string: url11)
             
-            print(url11)
+            debugPrint(url11)
             
             cell.rentalmapimageview!.af_setImage(withURL:
                 url1! as URL,
@@ -331,7 +331,7 @@ class UpComingViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 
                 let newUrl = imageUrl + cartypeimage!
                 //  let url = "http://apporio.co.uk/apporiotaxi/\(cartypeimage!)"
-                print(newUrl)
+                debugPrint(newUrl)
                 
                 let url1 = NSURL(string: newUrl)
                 cell.driverimage!.af_setImage(withURL:
@@ -354,7 +354,7 @@ class UpComingViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             let url1 = NSURL(string: url11)
             
-            print(url11)
+            debugPrint(url11)
             
             cell.firstmapimageview!.af_setImage(withURL:
                 url1! as URL,
@@ -370,7 +370,7 @@ class UpComingViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             let url22 = "https://maps.googleapis.com/maps/api/staticmap?center=\(dropuplat),\(dropuplong)&zoom=15&size=\(phonewidth/2)x120"
             
-            print(url22)
+            debugPrint(url22)
             let url2 = NSURL(string: url22)
             cell.secondimageview!.af_setImage(withURL:
                 url2! as URL,
@@ -597,7 +597,7 @@ class UpComingViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         newridetable.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
-        print("Row: \(row)")
+        debugPrint("Row: \(row)")
         
         
         var value = ""
@@ -630,7 +630,7 @@ class UpComingViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
         
-        print(value)
+        debugPrint(value)
         
         
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
@@ -691,7 +691,7 @@ class UpComingViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     

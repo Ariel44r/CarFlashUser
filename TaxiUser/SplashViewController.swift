@@ -122,10 +122,10 @@ class SplashViewController: UIViewController,CLLocationManagerDelegate,MainCateg
         // 2
         geocoder.reverseGeocodeCoordinate(coordinate) { response, error in
             if let address = response?.firstResult() {
-                //  print(address.lines)
+                //  debugPrint(address.lines)
                 let lines = address.lines
                 GlobalVarible.Pickuptext = lines!.joined(separator: "\n")
-                print(GlobalVarible.Pickuptext)
+                debugPrint(GlobalVarible.Pickuptext)
                 if let city = address.locality{
                     GlobalVarible.usercityname  = String(city)
                     
@@ -182,7 +182,7 @@ class SplashViewController: UIViewController,CLLocationManagerDelegate,MainCateg
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
 
     }
     

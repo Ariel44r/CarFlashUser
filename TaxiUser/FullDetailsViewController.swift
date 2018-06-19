@@ -283,7 +283,7 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
         // UserDefaults.standard.setValue(ridestausvalue, forKey:"ride_status")
         
         
-        print(ridestausvalue)
+        debugPrint(ridestausvalue)
         
         
         Acceptedratingview.isUserInteractionEnabled = false
@@ -779,7 +779,7 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     
@@ -885,7 +885,7 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 
                 let url1 = NSURL(string: url11)
                 
-                print(url11)
+                debugPrint(url11)
                 
                 self.completemapimageview!.af_setImage(withURL:
                     url1! as URL,
@@ -917,7 +917,7 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 let driverratingvalue = rentalridedata.details?.userratingstar
                 
                 if driverratingvalue == ""{
-                    print("hjjk")
+                    debugPrint("hjjk")
                 }else{
                     
                     completeratingview.rating = Float(driverratingvalue!)!
@@ -960,16 +960,16 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 
                 let drivertypeimage = rentalridedata.details!.driverImage
                 
-                print(drivertypeimage!)
+                debugPrint(drivertypeimage!)
                 
                 if(drivertypeimage == ""){
                     completedriverimage.image = UIImage(named: "profileeee") as UIImage?
                     Accepteddriverimage.image = UIImage(named: "profileeee") as UIImage?
-                    print("No Image")
+                    debugPrint("No Image")
                 }else{
                     let newUrl = imageUrl + drivertypeimage!
                     // let url = "http://apporio.co.uk/apporiotaxi/\(drivertypeimage!)"
-                    print(newUrl)
+                    debugPrint(newUrl)
                     
                     let url1 = NSURL(string: newUrl)
                     
@@ -996,11 +996,11 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 if(cartypeimage == ""){
                     completecarimage.image = UIImage(named: "profileeee") as UIImage?
                     Acceptedcarimage.image = UIImage(named: "profileeee") as UIImage?
-                    print("No Image")
+                    debugPrint("No Image")
                 }else{
                     let newUrl = imageUrl + cartypeimage!
                     //  let url = "http://apporio.co.uk/apporiotaxi/\(cartypeimage!)"
-                    print(newUrl)
+                    debugPrint(newUrl)
                     
                     let url1 = NSURL(string: newUrl)
                     completecarimage!.af_setImage(withURL:
@@ -1021,7 +1021,7 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 
             }else{
                 
-                print("Hello")
+                debugPrint("Hello")
                 
                 
             }
@@ -1108,7 +1108,7 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 let driverratingvalue = mydatapage.details?.userratingstar
                 
                 if driverratingvalue == ""{
-                    print("hjjk")
+                    debugPrint("hjjk")
                 }else{
                     
                     completeratingview.rating = Float(driverratingvalue!)!
@@ -1154,16 +1154,16 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 
                 let drivertypeimage = mydatapage.details!.driverImage
                 
-                print(drivertypeimage!)
+                debugPrint(drivertypeimage!)
                 
                 if(drivertypeimage == ""){
                     completedriverimage.image = UIImage(named: "profileeee") as UIImage?
                     Accepteddriverimage.image = UIImage(named: "profileeee") as UIImage?
-                    print("No Image")
+                    debugPrint("No Image")
                 }else{
                     let newUrl = imageUrl + drivertypeimage!
                     // let url = "http://apporio.co.uk/apporiotaxi/\(drivertypeimage!)"
-                    print(newUrl)
+                    debugPrint(newUrl)
                     
                     let url1 = NSURL(string: newUrl)
                     
@@ -1190,11 +1190,11 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 if(cartypeimage == ""){
                     completecarimage.image = UIImage(named: "profileeee") as UIImage?
                     Acceptedcarimage.image = UIImage(named: "profileeee") as UIImage?
-                    print("No Image")
+                    debugPrint("No Image")
                 }else{
                     let newUrl = imageUrl + cartypeimage!
                     //  let url = "http://apporio.co.uk/apporiotaxi/\(cartypeimage!)"
-                    print(newUrl)
+                    debugPrint(newUrl)
                     
                     let url1 = NSURL(string: newUrl)
                     completecarimage!.af_setImage(withURL:
@@ -1215,7 +1215,7 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 
             }else{
                 
-                print("Hello")
+                debugPrint("Hello")
                 
                 
             }
@@ -1262,7 +1262,7 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 
                 // let data1 = data["routes"]![0]["legs"]!![0]["steps"]!!.count
                 
-                print(data2)
+                debugPrint(data2)
                 
                 for i in 0..<data2 {
                     
@@ -1287,8 +1287,8 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 // latroute1.append(data["routes"]!![0]["legs"]!![0]["steps"]!![data1 - 1]["end_location"]!!["lat"] as! Double)
                 //  longroute1.append(data["routes"]!![0]["legs"]!![0]["steps"]!![data1 - 1]["end_location"]!!["lng"] as! Double)
                 
-                print(latroute1)
-                print(longroute1)
+                debugPrint(latroute1)
+                debugPrint(longroute1)
                 
                 
                 let phonewidth = Int(self.view.frame.width) + 100
@@ -1313,17 +1313,17 @@ class FullDetailsViewController: UIViewController,MainCategoryProtocol {
                 
                 
                 
-                print(truncated)
+                debugPrint(truncated)
                 
                 let arraycount = latroute1.count
                 
-                print(arraycount)
+                debugPrint(arraycount)
                 
                 
                 let url11 = "http://maps.googleapis.com/maps/api/staticmap?size=\(phonewidth)x\(phoneheight)&path=color:0x000000|weight:2|\(truncated)&sensor=false&markers=icon:http://apporio.co.uk/triwl/s3.png|\(pickuplat!),\(pickuplong!)&markers=icon:http://apporio.co.uk/triwl/s2.png|\(dropuplat!),\(dropuplong!)"
                 
                 
-                print(url11)
+                debugPrint(url11)
                 
                 let url12 = url11.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 

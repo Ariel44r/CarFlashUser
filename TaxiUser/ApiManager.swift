@@ -29,10 +29,10 @@ class ApiManager{
     func getcoupons(CouponCode: String,USERID: String) {
         let url = (API_URL.getcoupon + "\(CouponCode)&user_id=\(USERID)&language_id=\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
         self.protocolmain_Catagory.onProgressStatus(value: 1)
-        print(url)
+        debugPrint(url)
         Alamofire.request(url, method: .get, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -44,7 +44,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                        // self.protocolmain_Catagory.SendingBugFinderLog(url: url, response: responsedata, requestparam: "No Parameter")
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = Coupons(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -65,7 +65,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -77,7 +77,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "getcartype"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CarType(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -93,11 +93,11 @@ class ApiManager{
     
     func viewwalletmoney(UserId: String) {
         let url = (API_URL.showwalletmoney + "\(UserId)&language_id=\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
-        print(url)
+        debugPrint(url)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -109,7 +109,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "walletmoneyresponse"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = ShowWalletMoneyModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -136,7 +136,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.changedropLoc, method: .post, parameters: dic)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
                 
             }
             .validate { request, response, data in
@@ -150,7 +150,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "Dropchange"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = DropChange(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -173,10 +173,10 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         Alamofire.request(API_URL.viewcarswithtime, method: .post, parameters: dic)    
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
 
             }
             .validate { request, response, data in
@@ -190,7 +190,7 @@ class ApiManager{
                     //self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "CarsTimeModel"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CarsTImeModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -208,7 +208,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -220,7 +220,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "cityname"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CityName(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -249,7 +249,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -260,7 +260,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = TermsModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -287,7 +287,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.customersupport, method: .post, parameters: dic)
             .responseJSON { response in
@@ -296,7 +296,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CustomerSupportModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -318,7 +318,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)    
         Alamofire.request(url, method: .get, parameters: nil)
            /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -329,7 +329,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = TermsModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -345,11 +345,11 @@ class ApiManager{
     
     func RateCard(City: String , CarTypeId: String) {
         let url = (API_URL.ratecard + "\(City)&car_type_id=\(CarTypeId)&language_id=\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
-        print(url)
+        debugPrint(url)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -361,7 +361,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "ratecard"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = RateCardModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -387,10 +387,10 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
 
         ]
-        print(dic)
+        debugPrint(dic)
         Alamofire.request(API_URL.rideestimate, method: .get, parameters: dic)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
                 
             }
             .validate { request, response, data in
@@ -404,7 +404,7 @@ class ApiManager{
                        self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "rideestimateresponse"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = RideEstimate(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -420,7 +420,7 @@ class ApiManager{
     
     func ConfirmRide(USERID: String,COUPONCODE: String,USERCURRENTLAT: String,USERCURRENTLONG: String,CURRENTADDRESS: String,DROPLAT: String,DROPLNG: String,DropLOCATION: String,RIDETYPE: String,RIDESTATUS: String,CARTYPEID: String,PaymentOPtionId: String,CardId: String){    
       //  let url = (API_URL.RideNow + "\(USERID)&coupons_code=\(COUPONCODE)&pickup_lat=\(USERCURRENTLAT)&pickup_long=\(USERCURRENTLONG)&pickup_location=\(CURRENTADDRESS)&drop_lat=\(DROPLAT)&drop_long=\(DROPLNG)&drop_location=\(DropLOCATION)&ride_type=\(RIDETYPE)&ride_status=\(RIDESTATUS)&car_type_id=\(CARTYPEID)&payment_option_id=\(PaymentOPtionId)&card_id=\(CardId)&language_id=\(GlobalVarible.languageid)")
-        print(GlobalVarible.CouponCode)
+        debugPrint(GlobalVarible.CouponCode)
         let dic: [String: Any] = [
             "user_id":USERID,
             "coupon_code":COUPONCODE,
@@ -440,7 +440,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode       
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1
              Alamofire.request(API_URL.RideNow, method: .get, parameters: dic)
                .responseJSON { response in
@@ -450,7 +450,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "confirmridebook"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = ConfirmRideModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -486,7 +486,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.RideLater, method: .get, parameters: dic)
             //  Alamofire.request(API_URL.RideLater, method: .get, parameters: dic)
@@ -497,7 +497,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "RideLaterBook"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         //  let dataToParse = JSON(responsedata)
                         // let  ParsedData = ConfirmRideModel(json: dataToParse)    
                         self.protocolmain_Catagory.onSuccessParse(data: responsedata as AnyObject)
@@ -520,7 +520,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.rentalusercancel, method: .post, parameters: dic)
             .responseJSON { response in
@@ -530,7 +530,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value{
                         GlobalVarible.Api = "rentalCancelbyuser"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = RentalRideCancelModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -549,7 +549,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -561,7 +561,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "Cancelbyuser"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = BookingCancelled(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -592,17 +592,17 @@ class ApiManager{
             switch result {
             case .success(let upload, _, _):
                 upload.uploadProgress(closure: { (Progress) in
-                    print("Upload Progress: \(Progress.fractionCompleted)")
+                    debugPrint("Upload Progress: \(Progress.fractionCompleted)")
 
                 })
                 upload.responseJSON { response in  
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
-                    print(response.result)
+                    debugPrint(response.result)
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "editprofile"
                         let dataToParse = JSON(responsedata)
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let  ParsedData = SignupLoginResponse(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
 
@@ -624,10 +624,10 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
         
         ]
-        print(dic)
+        debugPrint(dic)
         Alamofire.request(API_URL.DeviceId, method: .get, parameters: dic)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
 
             }
             .validate { request, response, data in
@@ -640,7 +640,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         
                     }
@@ -654,7 +654,7 @@ class ApiManager{
     
     func EmergencyContactUrl() {
         let url = (API_URL.emergencycontacturl + "?language_id=\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
-        print(url)
+        debugPrint(url)
         Alamofire.request(url, method: .get, parameters: nil)
             .responseJSON { response in
                 switch response.result {
@@ -662,7 +662,7 @@ class ApiManager{
                     //  self.delegate.onProgressState(1)
                     
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = EmergencyResponseModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -695,7 +695,7 @@ class ApiManager{
                 case.success( _):
                     //  self.delegate.onProgressState(1)
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                        // self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
 
@@ -713,7 +713,7 @@ class ApiManager{
         // self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -725,7 +725,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "DriverInformation"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = DriverInfo(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -742,10 +742,10 @@ class ApiManager{
     func ViewDoneRide(RIDEID: String){    
         let url = (API_URL.viewdonerideinfo + "\(RIDEID)&language_id=\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
         self.protocolmain_Catagory.onProgressStatus(value: 1)
-        print(url)
+        debugPrint(url)
         Alamofire.request(url, method: .get, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -757,7 +757,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "DoneRideInformation"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = DoneRideModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -778,7 +778,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(escapedString!, method: .get, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -790,7 +790,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "NormalRating"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         //let dataToParse = JSON(responsedata)
                         //let  ParsedData = CompletePayment(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: responsedata as AnyObject)
@@ -818,14 +818,14 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         //let url = (API_URL.confirmpayment + "\(OrderId)&user_id=\(UserId)&payment_id=\(PaymentId)&payment_method=\(PaymentMethod)&payment_platform=\(PaymentPlatform)&payment_amount=\(PaymentAmount)&payment_date_time=\(PaymentDate)&payment_status=\(PaymentStatus)&language_id=\(GlobalVarible.languageid)")
         //let escapedString = url.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        //print(escapedString!)
+        //debugPrint(escapedString!)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.confirmpayment, method: .get, parameters: dic)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -837,7 +837,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "CONFIRMPAYMENT"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CompletePayment(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -858,7 +858,7 @@ class ApiManager{
         let url = "https://maps.googleapis.com/maps/api/distancematrix/json?key=\("AIzaSyDdN4fqXPnnGWuCs2d5ncpDBnGgKfDo1fM")&origins=\(pickuplat),\(pickuplng)&destinations=\(GlobalVarible.UserDropLat),\(GlobalVarible.UserDropLng)&language=\("en-EN")"
         Alamofire.request(url, method: .post, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -870,7 +870,7 @@ class ApiManager{
                    // self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "distancetype"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = DistanceModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -886,10 +886,10 @@ class ApiManager{
     
     func FindDirectionlatlng(pickLat: Double,pickLng: Double, DropLat : Double,DropLng: Double){    
         let url = "https://maps.googleapis.com/maps/api/directions/json?origin=\(pickLat),\(pickLng)&destination=\(DropLat),\(DropLng)"
-        print(url)
+        debugPrint(url)
         Alamofire.request(url, method: .post, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -901,7 +901,7 @@ class ApiManager{
                    // self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "directionapiresult"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = NewGoogleDistanceModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -919,7 +919,7 @@ class ApiManager{
         protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .post, parameters: dictonary as? [String : AnyObject])
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -931,7 +931,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "userlogout"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = LogOutModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -950,7 +950,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -962,7 +962,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "cancelreason"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = ReasonModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -982,7 +982,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(escapedString!, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -994,7 +994,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "mailinvoice"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = MailInvoiceModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1013,7 +1013,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1025,7 +1025,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "Savecard"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = SaveCardModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1044,7 +1044,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1056,7 +1056,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "viewcard"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CardDetailsModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1072,11 +1072,11 @@ class ApiManager{
     
     func AddMoneyMethod(UserId: String,Amount: String,CardId: String){    
         let url = (API_URL.addmoneyurl + "\(Amount)&user_id=\(UserId)&card_id=\(CardId)&language_id=\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
-        print(url)
+        debugPrint(url)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1088,7 +1088,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "addmoneymodel"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = AddMoneyModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1107,7 +1107,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1119,7 +1119,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "deletecard"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = DeleteCardModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1138,7 +1138,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1150,7 +1150,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                          GlobalVarible.Api = "paycard"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = PayCardModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1169,7 +1169,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1180,7 +1180,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = ViewPaymentModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1196,11 +1196,11 @@ class ApiManager{
     
     func CancelRide60Sec(RideID: String,Auto: String,RideMode: String){    
         let url = (API_URL.cancelride60sec + "\(RideID)&auto=\(Auto)&ride_mode=\(RideMode)&language_code=\(GlobalVarible.languagecode)")
-        print(url)
+        debugPrint(url)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1212,7 +1212,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "usersyncwhenappterminate"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CustomerSyncModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1230,11 +1230,11 @@ class ApiManager{
 
     func UserSyncWhenAppTerminate(UserId: String){        
         let url = (API_URL.usersyncwhenappterminate + "\(UserId)&language_id=\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
-        print(url)
+        debugPrint(url)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1246,7 +1246,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "usersyncwhenappterminate"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CustomerSyncModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1265,7 +1265,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1277,7 +1277,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "customersync" 
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CustomerSyncModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1296,7 +1296,7 @@ class ApiManager{
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .get, parameters: nil)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1308,7 +1308,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                        GlobalVarible.Api = "customersyncend" 
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CustomerSyncModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1326,7 +1326,7 @@ class ApiManager{
         protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .post, parameters: dictonary as? [String : AnyObject])
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1337,7 +1337,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = SignupLoginResponse(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1355,7 +1355,7 @@ class ApiManager{
         protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(url, method: .post, parameters: dictonary as? [String : AnyObject])
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1366,7 +1366,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = NewChangePassword(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1386,10 +1386,10 @@ class ApiManager{
             "language_id":GlobalVarible.languageid,
             "language_code":GlobalVarible.languagecode
         ]
-        print(dic)
+        debugPrint(dic)
         Alamofire.request(API_URL.viewrentaldata, method: .post, parameters: dic)
             .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                //print("Progress: \(progress.fractionCompleted)")
+                //debugPrint("Progress: \(progress.fractionCompleted)")
             }
             .validate { request, response, data in
                 return .success
@@ -1401,7 +1401,7 @@ class ApiManager{
                     //   self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "RentalModel"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = RentalModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1431,12 +1431,12 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
                 
         ] 
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.bookriderental, method: .post, parameters: dic)
             //    Alamofire.request(url, method: .post, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -1448,7 +1448,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "rentalconfirmridebook"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = RentalBookModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1485,7 +1485,7 @@ class ApiManager{
         Alamofire.request(API_URL.bookriderental, method: .post, parameters: dic)
             //    Alamofire.request(url, method: .post, parameters: nil)
             /* .downloadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-             //print("Progress: \(progress.fractionCompleted)")
+             //debugPrint("Progress: \(progress.fractionCompleted)")
              }
              .validate { request, response, data in
              return .success
@@ -1497,7 +1497,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "rentalconfirmridebooklater"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = RentalBookLaterModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1519,7 +1519,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.rentalridesync, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1529,9 +1529,9 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "rentalridesync"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
-                        print(dataToParse)
+                        debugPrint(dataToParse)
                         let  ParsedData = RentalRideSyncModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
                         
@@ -1551,7 +1551,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.rentalcancelreason, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1561,9 +1561,9 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "rentalcancelreason"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
-                        print(dataToParse)
+                        debugPrint(dataToParse)
                         let  ParsedData = RentalCancelReasonModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
 
@@ -1592,11 +1592,11 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = AllRides(json: dataToParse)
                         GlobalVarible.RideResult = ParsedData.status!
-                        print(GlobalVarible.RideResult)
+                        debugPrint(GlobalVarible.RideResult)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
                         
                     }
@@ -1615,7 +1615,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.viewrideslater, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1624,11 +1624,11 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = AllRides(json: dataToParse)
                         GlobalVarible.RideResult = ParsedData.status!
-                        print(GlobalVarible.RideResult)
+                        debugPrint(GlobalVarible.RideResult)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
                         
                     }
@@ -1647,7 +1647,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.NotificationUrl, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1656,7 +1656,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = NotificationModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1678,7 +1678,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.RentalViewRideInfo, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1688,7 +1688,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "rentalviewrideinfo"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = RentalViewRideInfoModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1709,7 +1709,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.RideShareUrl, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1719,7 +1719,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value { 
                         GlobalVarible.Api = "rentalshareurl"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = RideShareModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1741,7 +1741,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.RentalViewRideInfo, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1751,7 +1751,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "normalviewrideinfo"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = NormalViewRideInfoModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1774,7 +1774,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.rentalpayment, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1784,9 +1784,9 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "rentalpayment" 
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
-                        print(dataToParse)
+                        debugPrint(dataToParse)
                         let  ParsedData = RentalPaymentmodel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
                         
@@ -1806,7 +1806,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.Rentalridefareinfo, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1816,9 +1816,9 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "rentalridefare"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
-                        print(dataToParse)
+                        debugPrint(dataToParse)
                         let  ParsedData = RentalRideFareModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
 
@@ -1838,7 +1838,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.Rentaltrackridefareinfo, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1848,9 +1848,9 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "rentaldriverinfomation"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
-                        print(dataToParse)
+                        debugPrint(dataToParse)
                         let  ParsedData = RentalDriverInformationModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
 
@@ -1875,7 +1875,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.Rentalratinginfo, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1885,9 +1885,9 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "rentalratecustomer"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
-                        print(dataToParse)
+                        debugPrint(dataToParse)
                         let  ParsedData = RentalRateCustomerModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
 
@@ -1908,7 +1908,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.getotpurl, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1918,7 +1918,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "CheckOtpModel"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = CheckOtpModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1940,7 +1940,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.forgetotpurl, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1950,7 +1950,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "ForgotCheckOtpModel"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = ForgotCheckOtpModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -1972,7 +1972,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.forgotuserpassword, method: .post, parameters: dic)
             .responseJSON { response in
@@ -1981,7 +1981,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = NewChangePassword(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -2004,7 +2004,7 @@ class ApiManager{
             "language_code":GlobalVarible.languagecode
             
         ]
-        print(dic)
+        debugPrint(dic)
         self.protocolmain_Catagory.onProgressStatus(value: 1)
         Alamofire.request(API_URL.appupdate, method: .post, parameters: dic)
             .responseJSON { response in
@@ -2014,7 +2014,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "appupdateData"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = AppUpdateModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
@@ -2031,7 +2031,7 @@ class ApiManager{
     func ReportIssueMethod() {
         let url = (API_URL.reportissueurl + "\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
         self.protocolmain_Catagory.onProgressStatus(value: 1)
-        print(url)
+        debugPrint(url)
         Alamofire.request(url, method: .get, parameters: nil)
             .responseJSON { response in
                 switch response.result {
@@ -2040,7 +2040,7 @@ class ApiManager{
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
                     if let responsedata = response.result.value {
                         GlobalVarible.Api = "reportissue"
-                        print(responsedata)
+                        debugPrint(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = ReportIssueModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)

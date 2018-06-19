@@ -223,7 +223,7 @@ class RentalRecieptViewController: UIViewController,MainCategoryProtocol,PayPalP
     
     
    /* func ratingView(_ ratingView: RatingView, didChangeRating newRating: Float) {
-        print("newRating: \(newRating)")
+        debugPrint("newRating: \(newRating)")
         let rating = newRating
         // var  ratingValue = String(rating)
         ratingStar = String(rating)
@@ -233,18 +233,18 @@ class RentalRecieptViewController: UIViewController,MainCategoryProtocol,PayPalP
     
     
     func payPalPaymentDidCancel(_ paymentViewController: PayPalPaymentViewController) {
-        print("PayPal Payment Cancelled")
+        debugPrint("PayPal Payment Cancelled")
         resultText = ""
         
         paymentViewController.dismiss(animated: true, completion: nil)
     }
     
     func payPalPaymentViewController(_ paymentViewController: PayPalPaymentViewController, didComplete completedPayment: PayPalPayment) {
-        print("PayPal Payment Success !")
+        debugPrint("PayPal Payment Success !")
         paymentViewController.dismiss(animated: true, completion: { () -> Void in
             
             let data = JSON(completedPayment.confirmation)
-            print(data)
+            debugPrint(data)
             let datatoParse = PayPalModel(json: data)
             GlobalVarible.CreateTime =  (datatoParse.response?.createTime!)!
             GlobalVarible.State = (datatoParse.response?.state!)!
@@ -275,12 +275,12 @@ class RentalRecieptViewController: UIViewController,MainCategoryProtocol,PayPalP
     
     
     func payPalFuturePaymentDidCancel(_ futurePaymentViewController: PayPalFuturePaymentViewController) {
-        print("PayPal Future Payment Authorization Canceled")
+        debugPrint("PayPal Future Payment Authorization Canceled")
         futurePaymentViewController.dismiss(animated: true, completion: nil)
     }
     
     func payPalFuturePaymentViewController(_ futurePaymentViewController: PayPalFuturePaymentViewController, didAuthorizeFuturePayment futurePaymentAuthorization: [AnyHashable : Any]) {
-        print("PayPal Future Payment Authorization Success!")
+        debugPrint("PayPal Future Payment Authorization Success!")
         // send authorization to your server to get refresh token.
         futurePaymentViewController.dismiss(animated: true, completion: { () -> Void in
             self.resultText = futurePaymentAuthorization.description
@@ -299,7 +299,7 @@ class RentalRecieptViewController: UIViewController,MainCategoryProtocol,PayPalP
     // PayPalProfileSharingDelegate
     
     func payPalProfileSharingViewController(_ profileSharingViewController: PayPalProfileSharingViewController, userDidLogInWithAuthorization profileSharingAuthorization: [AnyHashable : Any]) {
-        print("PayPal Profile Sharing Authorization Success!")
+        debugPrint("PayPal Profile Sharing Authorization Success!")
         
         // send authorization to your server
         
@@ -314,7 +314,7 @@ class RentalRecieptViewController: UIViewController,MainCategoryProtocol,PayPalP
     
     
     func userDidCancel(_ profileSharingViewController: PayPalProfileSharingViewController) {
-        print("PayPal Profile Sharing Authorization Canceled")
+        debugPrint("PayPal Profile Sharing Authorization Canceled")
         
         profileSharingViewController.dismiss(animated: true, completion: nil)
     }
@@ -354,7 +354,7 @@ class RentalRecieptViewController: UIViewController,MainCategoryProtocol,PayPalP
                 
                 let decimalTotalamount = NSDecimalNumber(string: GlobalVarible.TotalPayableamount)
                 
-                print(decimalTotalamount)
+                debugPrint(decimalTotalamount)
                 
                 let payment = PayPalPayment(amount: decimalTotalamount, currencyCode: "GBP", shortDescription: "Pay", intent: .sale)
                 
@@ -365,7 +365,7 @@ class RentalRecieptViewController: UIViewController,MainCategoryProtocol,PayPalP
                 }
                 else {
                     
-                    print("Payment not processable: \(payment)")
+                    debugPrint("Payment not processable: \(payment)")
                 }
                 
                 
@@ -484,7 +484,7 @@ class RentalRecieptViewController: UIViewController,MainCategoryProtocol,PayPalP
     }
     
     func onSuccessExecution(msg: String) {
-        print("\(msg)")
+        debugPrint("\(msg)")
     }
     
     
@@ -557,7 +557,7 @@ class RentalRecieptViewController: UIViewController,MainCategoryProtocol,PayPalP
                 
             }else{
                 
-                print("HelloRating")
+                debugPrint("HelloRating")
                 
             }
             
