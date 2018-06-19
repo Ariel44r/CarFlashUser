@@ -12,7 +12,7 @@ import Foundation
 public class API_URL {
     
     //public static var basedomain = "http://apporio.co.uk/apporiotaxi/api/"
-    // public static var imagedomain = "http://apporio.co.uk/apporiotaxi/"
+    //public static var imagedomain = "http://apporio.co.uk/apporiotaxi/"
     public static var basedomain = GlobalVarible.UserBaseUrl
     public static var imagedomain = GlobalVarible.UserImageBaseUrl
     //public static var basedomain = "http://apporioinfolabs.com/apporiotaxi/api/"
@@ -46,7 +46,7 @@ public class API_URL {
     public static var appupdate = basedomain + "app_version.php"
     public static var Register = basedomain + "register_user.php?user_name="
     //public static var register2 = basedomain + "register_driver_docs.php?driver_id="
-    // public static var registerTesting = basedomain + "register_driver_testing.php?driver_email="
+    //public static var registerTesting = basedomain + "register_driver_testing.php?driver_email="
     public static var verifyphone = basedomain + "phone.php?user_phone="
     public static var getotp = basedomain + "otp_sent.php?user_phone="
     public static var createpassword = basedomain + "create_password.php?user_phone="
