@@ -12,7 +12,6 @@ import GoogleMaps
 import MapKit
 import Firebase
 
-
 class SplashViewController: UIViewController,CLLocationManagerDelegate,MainCategoryProtocol {
     
     //MARK: Instnces
@@ -94,8 +93,8 @@ class SplashViewController: UIViewController,CLLocationManagerDelegate,MainCateg
 
     }*/
     
-  /*  func getCurrentAddress() {
-      //  let locManager = CLLocationManager()
+    /*func getCurrentAddress() {
+        //let locManager = CLLocationManager()
         let currentLocation = CLLocation()
         self.locationManager.requestAlwaysAuthorization()
         if( CLLocationManager.authorizationStatus() == CLAuthorizationStatus.authorizedAlways ||

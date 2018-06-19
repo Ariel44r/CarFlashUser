@@ -3404,122 +3404,60 @@ class ApiManager{
     
     
     
-    func AppUdateMethod(ApplicationVersion: String)
-    {
-        
-        
-        let dic = ["application_version":ApplicationVersion,
-                   "flag":"1",
-                   "application":"1",
-                   "language_id":GlobalVarible.languageid,
-                   "language_code":GlobalVarible.languagecode
+    func AppUdateMethod(ApplicationVersion: String) {
+        let dic: [String: Any] = [
+            "application_version":ApplicationVersion,
+            "flag":"1",
+            "application":"1",
+            "language_id":GlobalVarible.languageid,
+            "language_code":GlobalVarible.languagecode
             
-            ] as [String : Any]
-        
-        
+        ]
         print(dic)
-        
-        
-        
         self.protocolmain_Catagory.onProgressStatus(value: 1)
-        
-        
         Alamofire.request(API_URL.appupdate, method: .post, parameters: dic)
-            
             .responseJSON { response in
-                switch response.result
-                {
-                    
+                switch response.result {
                 case.success( _):
-                    
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
-                    
-                    if let responsedata = response.result.value
-                    {
+                    if let responsedata = response.result.value {
                         GlobalVarible.Api = "appupdateData"
                         print(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = AppUpdateModel(json: dataToParse)
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
-                        
-                        
-                        
                     }
                 case.failure(let error):
                     
-                   self.protocolmain_Catagory.onProgressStatus(value: 0)
+                    self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onerror(msg: error.localizedDescription)
-                    
-                    
-                    
+
                 }
-        }
-        
-        
-        
+            }
     }
     
-    func ReportIssueMethod()
-    {
-        
-        
+    func ReportIssueMethod() {
         let url = (API_URL.reportissueurl + "\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
-        
         self.protocolmain_Catagory.onProgressStatus(value: 1)
-        
-        
         print(url)
-        
         Alamofire.request(url, method: .get, parameters: nil)
-            
-          
             .responseJSON { response in
-                switch response.result
-                {
-                    
+                switch response.result {
                 case.success( _):
-                    
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onSuccessExecution(msg: "API is succesfully Executed")
-                    
-                    if let responsedata = response.result.value
-                    {
-                        
+                    if let responsedata = response.result.value {
                         GlobalVarible.Api = "reportissue"
                         print(responsedata)
                         let dataToParse = JSON(responsedata)
                         let  ParsedData = ReportIssueModel(json: dataToParse)
-                        
                         self.protocolmain_Catagory.onSuccessParse(data: ParsedData)
-                        
-                        
                     }
                 case.failure(let error):
-                   
                     self.protocolmain_Catagory.onProgressStatus(value: 0)
                     self.protocolmain_Catagory.onerror(msg: error.localizedDescription)
-                    
-                    
-                    
-                    
-                    
-                    
                 }
-        }
-        
-        
+            }
     }
-
-    
-
-    
-    
-    
-    
-    
-    
-
-    
- 
 }
