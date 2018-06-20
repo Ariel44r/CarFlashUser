@@ -14,11 +14,9 @@ public class BookingCancelled: NSObject {
 	internal let kBookingCancelledResultKey: String = "result"
 	internal let kBookingCancelledMsgKey: String = "msg"
 
-
     // MARK: Properties
 	public var result: Int?
 	public var msg: String?
-
 
     // MARK: SwiftyJSON Initalizers
     /**
@@ -28,6 +26,7 @@ public class BookingCancelled: NSObject {
     */
     convenience public init(object: AnyObject) {
         self.init(json: JSON(object))
+
     }
 
     /**
@@ -35,28 +34,27 @@ public class BookingCancelled: NSObject {
     - parameter json: JSON object from SwiftyJSON.
     - returns: An initalized instance of the class.
     */
+
     public init(json: JSON) {
 		result = json[kBookingCancelledResultKey].int
 		msg = json[kBookingCancelledMsgKey].string
 
     }
 
-
     /**
     Generates description of the object in the form of a NSDictionary.
     - returns: A Key value pair containing all valid values in the object.
     */
     public func dictionaryRepresentation() -> [String : AnyObject ] {
-
         var dictionary: [String : AnyObject ] = [ : ]
 		if result != nil {
 			dictionary.updateValue(result! as AnyObject, forKey: kBookingCancelledResultKey)
+
 		}
 		if msg != nil {
 			dictionary.updateValue(msg! as AnyObject, forKey: kBookingCancelledMsgKey)
-		}
 
+		}
         return dictionary
     }
-
 }

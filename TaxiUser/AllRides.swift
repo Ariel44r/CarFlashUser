@@ -15,12 +15,10 @@ public class AllRides: NSObject {
 	internal let kAllRidesMessageKey: String = "message"
 	internal let kAllRidesDetailsKey: String = "details"
 
-
     // MARK: Properties
 	public var status: Int?
 	public var message: String?
 	public var details: [AllRidesDetails]?
-
 
     // MARK: SwiftyJSON Initalizers
     /**
@@ -28,8 +26,10 @@ public class AllRides: NSObject {
     - parameter object: The object of either Dictionary or Array kind that was passed.
     - returns: An initalized instance of the class.
     */
+
     convenience public init(object: AnyObject) {
         self.init(json: JSON(object))
+
     }
 
     /**
@@ -44,36 +44,38 @@ public class AllRides: NSObject {
 		if let items = json[kAllRidesDetailsKey].array {
 			for item in items {
 				details?.append(AllRidesDetails(json: item))
+
 			}
 		} else {
 			details = nil
+
 		}
-
     }
-
 
     /**
     Generates description of the object in the form of a NSDictionary.
     - returns: A Key value pair containing all valid values in the object.
     */
     public func dictionaryRepresentation() -> [String : AnyObject ] {
-
         var dictionary: [String : AnyObject ] = [ : ]
 		if status != nil {
 			dictionary.updateValue(status! as AnyObject, forKey: kAllRidesStatusKey)
+
 		}
 		if message != nil {
 			dictionary.updateValue(message! as AnyObject, forKey: kAllRidesMessageKey)
+
 		}
 		if (details?.count)! > 0 {
 			var temp: [AnyObject] = []
 			for item in details! {
 				temp.append(item.dictionaryRepresentation() as AnyObject)
+
 			}
 			dictionary.updateValue(temp as AnyObject, forKey: kAllRidesDetailsKey)
+
 		}
-
         return dictionary
-    }
 
+    }
 }

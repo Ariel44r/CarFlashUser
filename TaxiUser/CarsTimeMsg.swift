@@ -21,7 +21,6 @@ public class CarsTimeMsg: NSObject {
     internal let kDetailsCurrencyIsoCodeKey: String = "currency_iso_code"
     internal let kDetailsCurrencyUnicodeKey: String = "currency_unicode"
     
-    
     // MARK: Properties
     public var rideMode: String?
     public var baseFare: String?
@@ -33,7 +32,6 @@ public class CarsTimeMsg: NSObject {
     public var currencyIsoCode: String?
     public var currencyUnicode: String?
     
-    
     // MARK: SwiftyJSON Initalizers
     /**
      Initates the class based on the object
@@ -42,6 +40,7 @@ public class CarsTimeMsg: NSObject {
      */
     convenience public init(object: AnyObject) {
         self.init(json: JSON(object))
+
     }
     
     /**
@@ -68,37 +67,44 @@ public class CarsTimeMsg: NSObject {
      - returns: A Key value pair containing all valid values in the object.
      */
     public func dictionaryRepresentation() -> [String : AnyObject ] {
-        
         var dictionary: [String : AnyObject ] = [ : ]
         if rideMode != nil {
             dictionary.updateValue(rideMode! as AnyObject, forKey: kDetailsRideModeKey)
+
         }
         if baseFare != nil {
             dictionary.updateValue(baseFare! as AnyObject, forKey: kDetailsBaseFareKey)
+
         }
         if distance != nil {
             dictionary.updateValue(distance! as AnyObject, forKey: kDetailsDistanceKey)
+
         }
         if carTypeName != nil {
             dictionary.updateValue(carTypeName! as AnyObject, forKey: kDetailsCarTypeNameKey)
+
         }
         if cityId != nil {
             dictionary.updateValue(cityId! as AnyObject, forKey: kDetailsCityIdKey)
+
         }
         if carTypeImage != nil {
             dictionary.updateValue(carTypeImage! as AnyObject, forKey: kDetailsCarTypeImageKey)
+
         }
         if carTypeId != nil {
             dictionary.updateValue(carTypeId! as AnyObject, forKey: kDetailsCarTypeIdKey)
+
         }
         if currencyUnicode != nil {
             dictionary.updateValue(currencyUnicode! as AnyObject, forKey: kDetailsCurrencyUnicodeKey)
+
         }
         if currencyIsoCode != nil {
             dictionary.updateValue(currencyIsoCode! as AnyObject, forKey: kDetailsCurrencyIsoCodeKey)
+
         }
-        
         return dictionary
+
     }
-    
 }

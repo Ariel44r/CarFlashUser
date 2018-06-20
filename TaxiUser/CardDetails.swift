@@ -21,7 +21,6 @@ public class CardDetails: NSObject {
 	public var cardId: String?
 	public var cardType: String?
 
-
     // MARK: SwiftyJSON Initalizers
     /**
     Initates the class based on the object
@@ -30,6 +29,7 @@ public class CardDetails: NSObject {
     */
     convenience public init(object: AnyObject) {
         self.init(json: JSON(object))
+
     }
 
     /**
@@ -44,25 +44,25 @@ public class CardDetails: NSObject {
 
     }
 
-
     /**
     Generates description of the object in the form of a NSDictionary.
     - returns: A Key value pair containing all valid values in the object.
     */
     public func dictionaryRepresentation() -> [String : AnyObject ] {
-
-        var dictionary: [String : AnyObject ] = [ : ]
+        var dictionary: [String: AnyObject ] = [:]
 		if cardNumber != nil {
 			dictionary.updateValue(cardNumber! as AnyObject, forKey: kDetailsCardNumberKey)
+
 		}
 		if cardId != nil {
 			dictionary.updateValue(cardId! as AnyObject, forKey: kDetailsCardIdKey)
+
 		}
 		if cardType != nil {
 			dictionary.updateValue(cardType! as AnyObject, forKey: kDetailsCardTypeKey)
+
 		}
-
         return dictionary
-    }
 
+    }
 }

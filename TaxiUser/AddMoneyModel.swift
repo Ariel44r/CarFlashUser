@@ -15,12 +15,10 @@ public class AddMoneyModel: NSObject {
 	internal let kAddMoneyModelResultKey: String = "result"
 	internal let kAddMoneyModelMsgKey: String = "msg"
 
-
-    // MARK: Properties
+    // MARK: Instances
 	public var paymentId: String?
 	public var result: Int?
 	public var msg: String?
-
 
     // MARK: SwiftyJSON Initalizers
     /**
@@ -28,8 +26,10 @@ public class AddMoneyModel: NSObject {
     - parameter object: The object of either Dictionary or Array kind that was passed.
     - returns: An initalized instance of the class.
     */
+
     convenience public init(object: AnyObject) {
         self.init(json: JSON(object))
+
     }
 
     /**
@@ -44,25 +44,25 @@ public class AddMoneyModel: NSObject {
 
     }
 
-
     /**
     Generates description of the object in the form of a NSDictionary.
     - returns: A Key value pair containing all valid values in the object.
     */
     public func dictionaryRepresentation() -> [String : AnyObject ] {
-
         var dictionary: [String : AnyObject ] = [ : ]
 		if paymentId != nil {
-			dictionary.updateValue(paymentId! as AnyObject, forKey: kAddMoneyModelPaymentIdKey)
+			dictionary.updateValue(paymentId! as AnyObject, forKey: kddMoneyModelPaymentIdKey)
+
 		}
 		if result != nil {
 			dictionary.updateValue(result! as AnyObject, forKey: kAddMoneyModelResultKey)
+
 		}
 		if msg != nil {
 			dictionary.updateValue(msg! as AnyObject, forKey: kAddMoneyModelMsgKey)
+
 		}
-
         return dictionary
-    }
 
+    }
 }

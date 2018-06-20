@@ -10,7 +10,6 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-
 protocol MainCategoryProtocol {
     func onProgressStatus(value : Int)
     func onerror(msg : String)
@@ -20,9 +19,9 @@ protocol MainCategoryProtocol {
 
 }
 
+class ApiManager{      
 
-class ApiManager{
-      
+    //MARK: Instances
     var protocolmain_Catagory : MainCategoryProtocol! = nil
     static let sharedInstance = ApiManager()
 
@@ -234,16 +233,6 @@ class ApiManager{
             }    
     }
     
-    
-
-    
-    
-
-    
-
-    
-
-    
     func AboutUs(){
         let url = (API_URL.Aboutus + "\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
         self.protocolmain_Catagory.onProgressStatus(value: 1)
@@ -309,10 +298,7 @@ class ApiManager{
             }
         }
     }
-    
 
-    
-    
     func TermsConditions(){   
         let url = (API_URL.TermsAndConditions + "\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
         self.protocolmain_Catagory.onProgressStatus(value: 1)    
@@ -341,8 +327,7 @@ class ApiManager{
                 }
             }
     }
-    
-    
+        
     func RateCard(City: String , CarTypeId: String) {
         let url = (API_URL.ratecard + "\(City)&car_type_id=\(CarTypeId)&language_id=\(GlobalVarible.languageid)&language_code=\(GlobalVarible.languagecode)")
         debugPrint(url)

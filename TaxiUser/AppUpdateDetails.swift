@@ -25,6 +25,7 @@ public final class AppUpdateDetails {
         static let iosDriverCurrentVersion = "ios_driver_current_version"
         static let applicationVersionId = "application_version_id"
         static let iosDriverMaintenanceMode = "ios_driver_maintenance_mode"
+        
     }
     
     // MARK: Properties
@@ -49,6 +50,7 @@ public final class AppUpdateDetails {
     /// - returns: An initialized instance of the class.
     public convenience init(object: Any) {
         self.init(json: JSON(object))
+
     }
     
     /// Initiates the instance based on the JSON that was passed.
@@ -68,6 +70,7 @@ public final class AppUpdateDetails {
         iosDriverCurrentVersion = json[SerializationKeys.iosDriverCurrentVersion].string
         applicationVersionId = json[SerializationKeys.applicationVersionId].string
         iosDriverMaintenanceMode = json[SerializationKeys.iosDriverMaintenanceMode].string
+
     }
     
     /// Generates description of the object in the form of a NSDictionary.
@@ -89,6 +92,6 @@ public final class AppUpdateDetails {
         if let value = applicationVersionId { dictionary[SerializationKeys.applicationVersionId] = value }
         if let value = iosDriverMaintenanceMode { dictionary[SerializationKeys.iosDriverMaintenanceMode] = value }
         return dictionary
-    }
 
+    }
 }

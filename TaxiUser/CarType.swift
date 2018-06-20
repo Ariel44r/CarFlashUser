@@ -14,11 +14,9 @@ public class CarType: NSObject {
 	internal let kCarTypeResultKey: String = "result"
 	internal let kCarTypeMsgKey: String = "msg"
 
-
     // MARK: Properties
 	public var result: Int?
 	public var msg: [CarMessage]?
-
 
     // MARK: SwiftyJSON Initalizers
     /**
@@ -28,6 +26,7 @@ public class CarType: NSObject {
     */
     convenience public init(object: AnyObject) {
         self.init(json: JSON(object))
+
     }
 
     /**
@@ -41,33 +40,34 @@ public class CarType: NSObject {
 		if let items = json[kCarTypeMsgKey].array {
 			for item in items {
 				msg?.append(CarMessage(json: item))
+
 			}
 		} else {
 			msg = nil
+
 		}
-
     }
-
 
     /**
     Generates description of the object in the form of a NSDictionary.
     - returns: A Key value pair containing all valid values in the object.
     */
     public func dictionaryRepresentation() -> [String : AnyObject ] {
-
         var dictionary: [String : AnyObject ] = [ : ]
 		if result != nil {
 			dictionary.updateValue(result! as AnyObject, forKey: kCarTypeResultKey)
+
 		}
 		if (msg?.count)! > 0 {
 			var temp: [AnyObject] = []
 			for item in msg! {
 				temp.append(item.dictionaryRepresentation() as AnyObject)
+
 			}
 			dictionary.updateValue(temp as AnyObject, forKey: kCarTypeMsgKey)
+
 		}
-
         return dictionary
-    }
 
+    }
 }

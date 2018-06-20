@@ -24,7 +24,6 @@ public final class AppUpdateModel {
   public var result: Int?
   public var msg: String?
   public var appcheck: Int?
-    
 
   // MARK: SwiftyJSON Initializers
   /// Initiates the instance based on the object.
@@ -41,8 +40,8 @@ public final class AppUpdateModel {
   public required init(json: JSON) {
     details = AppUpdateDetails(json: json[SerializationKeys.details])
     result = json[SerializationKeys.result].int
-     msg = json[SerializationKeys.msg].string
-     appcheck = json[SerializationKeys.result].int
+    msg = json[SerializationKeys.msg].string
+    appcheck = json[SerializationKeys.result].int
   }
 
   /// Generates description of the object in the form of a NSDictionary.

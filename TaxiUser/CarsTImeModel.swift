@@ -18,8 +18,6 @@ public class CarsTImeModel: NSObject {
     internal let kCarsTImeModelMessageKey: String = "message"
     internal let kCarsTImeModelDetailsKey: String = "details"
   
-    
-    
     // MARK: Properties
     public var currencyUnicode: String?
     public var currency: String?
@@ -27,8 +25,7 @@ public class CarsTImeModel: NSObject {
     public var status: Int?
     public var message: String?
     public var details: [CarsTimeMsg]?
-    
-    
+      
     // MARK: SwiftyJSON Initalizers
     /**
      Initates the class based on the object
@@ -37,6 +34,7 @@ public class CarsTImeModel: NSObject {
      */
     convenience public init(object: AnyObject) {
         self.init(json: JSON(object))
+
     }
     
     /**
@@ -54,45 +52,50 @@ public class CarsTImeModel: NSObject {
         if let items = json[kCarsTImeModelDetailsKey].array {
             for item in items {
                 details?.append(CarsTimeMsg(json: item))
+
             }
         } else {
             details = nil
+
         }
-        
     }
-    
     
     /**
      Generates description of the object in the form of a NSDictionary.
      - returns: A Key value pair containing all valid values in the object.
      */
-    public func dictionaryRepresentation() -> [String : AnyObject ] {
-        
+    public func dictionaryRepresentation() -> [String : AnyObject ] {    
         var dictionary: [String : AnyObject ] = [ : ]
         if currencyUnicode != nil {
             dictionary.updateValue(currencyUnicode! as AnyObject, forKey: kBaseClassCurrencyUnicodeKey)
+
         }
         if currency != nil {
             dictionary.updateValue(currency! as AnyObject, forKey: kBaseClassCurrencyKey)
+
         }
         if currencyIsoCode != nil {
             dictionary.updateValue(currencyIsoCode! as AnyObject, forKey: kBaseClassCurrencyIsoCodeKey)
+
         }
         if status != nil {
             dictionary.updateValue(status! as AnyObject, forKey: kCarsTImeModelStatusKey)
+
         }
         if message != nil {
             dictionary.updateValue(message! as AnyObject, forKey: kCarsTImeModelMessageKey)
+            
         }
         if (details?.count)! > 0 {
             var temp: [AnyObject] = []
             for item in details! {
                 temp.append(item.dictionaryRepresentation() as AnyObject)
+
             }
             dictionary.updateValue(temp as AnyObject, forKey: kCarsTImeModelDetailsKey)
+
         }
-        
         return dictionary
+
     }
-    
 }

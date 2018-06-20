@@ -19,7 +19,6 @@ public class AllRidesDetails: NSObject {
 	internal let kDetailsRentalRideKey: String = "Rental_Ride"
 	internal let kDetailsDriverIdKey: String = "driver_id"
 
-
     // MARK: Properties
 	public var bookingId: String?
 	public var rideMode: String?
@@ -28,7 +27,6 @@ public class AllRidesDetails: NSObject {
 	public var normalRide: NormalRide?
 	public var rentalRide: RentalRide?
 	public var driverId: String?
-
 
     // MARK: SwiftyJSON Initalizers
     /**
@@ -56,37 +54,42 @@ public class AllRidesDetails: NSObject {
 
     }
 
-
     /**
     Generates description of the object in the form of a NSDictionary.
     - returns: A Key value pair containing all valid values in the object.
     */
-    public func dictionaryRepresentation() -> [String : AnyObject ] {
 
+    public func dictionaryRepresentation() -> [String : AnyObject ] {
         var dictionary: [String : AnyObject ] = [ : ]
 		if bookingId != nil {
 			dictionary.updateValue(bookingId! as AnyObject, forKey: kDetailsBookingIdKey)
+
 		}
 		if rideMode != nil {
 			dictionary.updateValue(rideMode! as AnyObject, forKey: kDetailsRideModeKey)
+
 		}
 		if userRideId != nil {
 			dictionary.updateValue(userRideId! as AnyObject, forKey: kDetailsUserRideIdKey)
+
 		}
 		if userId != nil {
 			dictionary.updateValue(userId! as AnyObject, forKey: kDetailsUserIdKey)
+
 		}
 		if normalRide != nil {
 			dictionary.updateValue(normalRide!.dictionaryRepresentation() as AnyObject, forKey: kDetailsNormalRideKey)
+
 		}
 		if rentalRide != nil {
 			dictionary.updateValue(rentalRide!.dictionaryRepresentation() as AnyObject, forKey: kDetailsRentalRideKey)
+
 		}
 		if driverId != nil {
 			dictionary.updateValue(driverId! as AnyObject, forKey: kDetailsDriverIdKey)
+
 		}
-
         return dictionary
-    }
 
+    }
 }

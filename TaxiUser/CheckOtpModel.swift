@@ -15,12 +15,10 @@ public class CheckOtpModel: NSObject {
 	internal let kCheckOtpModelOtpKey: String = "otp"
 	internal let kCheckOtpModelResultKey: String = "status"
 
-
     // MARK: Properties
 	public var msg: String?
 	public var otp: String?
 	public var result: Int?
-
 
     // MARK: SwiftyJSON Initalizers
     /**
@@ -30,6 +28,7 @@ public class CheckOtpModel: NSObject {
     */
     convenience public init(object: AnyObject) {
         self.init(json: JSON(object))
+
     }
 
     /**
@@ -44,25 +43,25 @@ public class CheckOtpModel: NSObject {
 
     }
 
-
     /**
     Generates description of the object in the form of a NSDictionary.
     - returns: A Key value pair containing all valid values in the object.
     */
     public func dictionaryRepresentation() -> [String : AnyObject ] {
-
         var dictionary: [String : AnyObject ] = [ : ]
 		if msg != nil {
 			dictionary.updateValue(msg! as AnyObject, forKey: kCheckOtpModelMsgKey)
+
 		}
 		if otp != nil {
 			dictionary.updateValue(otp! as AnyObject, forKey: kCheckOtpModelOtpKey)
+
 		}
 		if result != nil {
 			dictionary.updateValue(result! as AnyObject, forKey: kCheckOtpModelResultKey)
+
 		}
-
         return dictionary
-    }
 
+    }
 }

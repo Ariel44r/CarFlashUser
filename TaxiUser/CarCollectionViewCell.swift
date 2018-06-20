@@ -9,16 +9,11 @@
 import UIKit
 
 class CarCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var carimage: UIImageView!
-    
-    @IBOutlet weak var carname: UILabel!
-    
-    @IBOutlet weak var cartime: UILabel!
-    
-    
-    
-    @IBOutlet weak var container: UIView!
 
+    //MARK: Outlets
+    @IBOutlet weak var carimage: UIImageView!    
+    @IBOutlet weak var carname: UILabel!
+    @IBOutlet weak var cartime: UILabel!
+    @IBOutlet weak var container: UIView!
     
 }
