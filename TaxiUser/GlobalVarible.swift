@@ -168,15 +168,8 @@ static var firstcarname: String = ""
             return
         }
         debugPrint(url)
-        UIApplication.shared.open(url, options: [:]
-            , completionHandler: completion)
+        UIApplication.shared.open(url, options: [:], completionHandler: completion)
     }
-    
-
-    
-   
-    
-    
     //  creatdd new variables 
 
 }
